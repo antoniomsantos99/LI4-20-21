@@ -45,6 +45,72 @@
         }
       },
       {
+        "HashCode": -1702426681,
+        "Kind": "Components.Component",
+        "Name": "LightsOut.Pages.ClassificacoesGerais",
+        "AssemblyName": "LightsOut",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "ClassificacoesGerais"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "LightsOut.Pages.ClassificacoesGerais"
+        }
+      },
+      {
+        "HashCode": -1344686746,
+        "Kind": "Components.Component",
+        "Name": "LightsOut.Pages.ClassificacoesGerais",
+        "AssemblyName": "LightsOut",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "LightsOut.Pages.ClassificacoesGerais"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "LightsOut.Pages.ClassificacoesGerais",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": 1615002330,
+        "Kind": "Components.Component",
+        "Name": "LightsOut.Pages.EquipasEPilotos",
+        "AssemblyName": "LightsOut",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "EquipasEPilotos"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "LightsOut.Pages.EquipasEPilotos"
+        }
+      },
+      {
+        "HashCode": 1904533417,
+        "Kind": "Components.Component",
+        "Name": "LightsOut.Pages.EquipasEPilotos",
+        "AssemblyName": "LightsOut",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "LightsOut.Pages.EquipasEPilotos"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "LightsOut.Pages.EquipasEPilotos",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
         "HashCode": 507115580,
         "Kind": "Components.Component",
         "Name": "LightsOut.Pages.FetchData",
@@ -107,6 +173,72 @@
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
           "Common.TypeName": "LightsOut.Pages.Index",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": -1649449286,
+        "Kind": "Components.Component",
+        "Name": "LightsOut.Pages.LoginPage",
+        "AssemblyName": "LightsOut",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "LoginPage"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "LightsOut.Pages.LoginPage"
+        }
+      },
+      {
+        "HashCode": -1996761071,
+        "Kind": "Components.Component",
+        "Name": "LightsOut.Pages.LoginPage",
+        "AssemblyName": "LightsOut",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "LightsOut.Pages.LoginPage"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "LightsOut.Pages.LoginPage",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": -1475290393,
+        "Kind": "Components.Component",
+        "Name": "LightsOut.Pages.MapaProvas",
+        "AssemblyName": "LightsOut",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "MapaProvas"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "LightsOut.Pages.MapaProvas"
+        }
+      },
+      {
+        "HashCode": -1636089643,
+        "Kind": "Components.Component",
+        "Name": "LightsOut.Pages.MapaProvas",
+        "AssemblyName": "LightsOut",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "LightsOut.Pages.MapaProvas"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "LightsOut.Pages.MapaProvas",
           "Components.NameMatch": "Components.FullyQualifiedNameMatch"
         }
       },
@@ -15938,6 +16070,11 @@
       "FileKind": "component"
     },
     {
+      "FilePath": "c:\\Users\\Carlos Preto\\Desktop\\3ºAno MIEI\\2º Semestre\\LI4\\LightsOut\\Pages\\LoginPage.razor",
+      "TargetPath": "Pages\\LoginPage.razor",
+      "FileKind": "component"
+    },
+    {
       "FilePath": "c:\\Users\\Carlos Preto\\Desktop\\3ºAno MIEI\\2º Semestre\\LI4\\LightsOut\\Shared\\NavMenu.razor",
       "TargetPath": "Shared\\NavMenu.razor",
       "FileKind": "component"
@@ -15953,6 +16090,11 @@
       "FileKind": "componentImport"
     },
     {
+      "FilePath": "c:\\Users\\Carlos Preto\\Desktop\\3ºAno MIEI\\2º Semestre\\LI4\\LightsOut\\Pages\\MapaProvas.razor",
+      "TargetPath": "Pages\\MapaProvas.razor",
+      "FileKind": "component"
+    },
+    {
       "FilePath": "c:\\Users\\Carlos Preto\\Desktop\\3ºAno MIEI\\2º Semestre\\LI4\\LightsOut\\App.razor",
       "TargetPath": "App.razor",
       "FileKind": "component"
@@ -15965,6 +16107,16 @@
     {
       "FilePath": "c:\\Users\\Carlos Preto\\Desktop\\3ºAno MIEI\\2º Semestre\\LI4\\LightsOut\\Pages\\FetchData.razor",
       "TargetPath": "Pages\\FetchData.razor",
+      "FileKind": "component"
+    },
+    {
+      "FilePath": "c:\\Users\\Carlos Preto\\Desktop\\3ºAno MIEI\\2º Semestre\\LI4\\LightsOut\\Pages\\ClassificacoesGerais.razor",
+      "TargetPath": "Pages\\ClassificacoesGerais.razor",
+      "FileKind": "component"
+    },
+    {
+      "FilePath": "c:\\Users\\Carlos Preto\\Desktop\\3ºAno MIEI\\2º Semestre\\LI4\\LightsOut\\Pages\\EquipasEPilotos.razor",
+      "TargetPath": "Pages\\EquipasEPilotos.razor",
       "FileKind": "component"
     },
     {

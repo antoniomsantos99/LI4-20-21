@@ -1,62 +1,49 @@
 .navbar-toggler[b-2ckyjn3pwu] {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(16, 230, 26, 0.966);
+}
+
+.bg-black[b-2ckyjn3pwu]{ /*nav-bar color*/
+    background-image: linear-gradient(90deg, rgb(0, 1, 3) 20%, #07e2ff 100%);
 }
 
 .top-row[b-2ckyjn3pwu] {
     height: 3.5rem;
-    background-color: rgba(0,0,0,0.4);
+    background-color: rgba(0, 0, 0, 0.4);
 }
 
-.navbar-brand[b-2ckyjn3pwu] {
-    font-size: 1.1rem;
+.navbar-brand[b-2ckyjn3pwu] { /*container onde esta logotipo*/
+    width: 200px;
 }
 
-.oi[b-2ckyjn3pwu] {
-    width: 2rem;
-    font-size: 1.1rem;
-    vertical-align: text-top;
-    top: -2px;
+.navbar-brand img[b-2ckyjn3pwu] {/*o logotipo */
+    height: 50px;
 }
 
 .nav-item[b-2ckyjn3pwu] {
     font-size: 0.9rem;
-    padding-bottom: 0.5rem;
 }
 
-    .nav-item:first-of-type[b-2ckyjn3pwu] {
-        padding-top: 1rem;
-    }
-
-    .nav-item:last-of-type[b-2ckyjn3pwu] {
-        padding-bottom: 1rem;
-    }
-
-    .nav-item[b-2ckyjn3pwu]  a {
-        color: #d7d7d7;
-        border-radius: 4px;
+    .nav-item[b-2ckyjn3pwu]  a { /*cada palavra na nav-bar */
+        color: #ffffff;
         height: 3rem;
         display: flex;
+        font-weight: bold;
         align-items: center;
-        line-height: 3rem;
+        font-family: monospace;
+        padding-left: 50px;
+        padding-right: 50px;
     }
 
-.nav-item[b-2ckyjn3pwu]  a.active {
-    background-color: rgba(255,255,255,0.25);
+.nav-item[b-2ckyjn3pwu]  a.active { /*como fica a palavra e icon quando esta selecionado*/
+    background-color: rgb(255, 255, 255);
+    text-decoration: none;
     color: white;
 }
 
-.nav-item[b-2ckyjn3pwu]  a:hover {
-    background-color: rgba(255,255,255,0.1);
-    color: white;
+.nav-item[b-2ckyjn3pwu]  a:hover{ /*como fica a palavra e icon quando passamos por cima*/
+    text-decoration: none;
+    color: rgb(255, 255, 255);
 }
 
-@media (min-width: 641px) {
-    .navbar-toggler[b-2ckyjn3pwu] {
-        display: none;
-    }
 
-    .collapse[b-2ckyjn3pwu] {
-        /* Never collapse the sidebar for wide screens */
-        display: block;
-    }
-}
+

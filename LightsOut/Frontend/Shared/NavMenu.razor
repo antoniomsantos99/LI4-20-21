@@ -1,37 +1,42 @@
-﻿<div class="top-row pl-4 navbar navbar-dark">
-    <a class="navbar-brand" href="">LightsOut</a>
-    <button class="navbar-toggler" @onclick="ToggleNavMenu">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-</div>
+﻿<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-black mb-3 fixed-top">
+    <div class="container">
 
-<div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
-    <ul class="nav flex-column">
-        <li class="nav-item px-3">
-            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                <span class="oi oi-map" aria-hidden="true"></span> Mapa de Provas
-            </NavLink>
-        </li>
-        <li class="nav-item px-3">
-            <NavLink class="nav-link" href="counter">
-                <span class="oi oi-bar-chart" aria-hidden="true"></span> Classificações Gerais
-            </NavLink>
-        </li>
-        <li class="nav-item px-3">
-            <NavLink class="nav-link" href="fetchdata">
-                <span class="oi oi-list-rich" aria-hidden="true"></span> Equipas e Pilotos
-            </NavLink>
-        </li>
-    </ul>
-</div>
+        <a class="navbar-brand" href="" Match="NavLinkMatch.All">
+            <img src="1.png">
+        </a>
+
+        <div class="@NavMenuCssClass navbar-collapse d-sm-inline-flex flex-sm-row-reverse" @onclick="CollapseNavMenu">
+            <ul class="navbar-nav flex-grow-1">
+                <li class="nav-item">
+                    <a href="mapaProvas">Mapa de Provas</a>
+                </li>
+                <li class="nav-item">
+                    <a href="classificacoesGerais">Classificações Gerais</a>
+                </li>
+                <li class="nav-item">
+                    <a href="equipasepilotos">Equipas e Pilotos</a>
+                </li>
+                <li class="nav-item">
+                    <a href="counter">Login</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
 
 @code {
-    private bool collapseNavMenu = true;
+    bool collapseNavMenu = true;
 
-    private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+    string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
 
-    private void ToggleNavMenu()
+    void ToggleNavMenu()
     {
         collapseNavMenu = !collapseNavMenu;
+    }
+
+    void CollapseNavMenu()
+    {
+        collapseNavMenu = true;
     }
 }

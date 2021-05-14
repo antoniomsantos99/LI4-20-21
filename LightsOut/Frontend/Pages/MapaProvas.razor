@@ -1,0 +1,31 @@
+@page "/mapaProvas"
+@inject IJSRuntime JSRuntime
+
+<body onload='loadMapScenario();'>
+    <div class='map'></div>
+    <div class="filtros">
+        <div class="row">
+            <div class="row">
+                <button type="button" @onclick="PrevDia">&#8249</button>
+                <p>@(dia.ToString("dd/MM/yyyy"))</p>
+                <button type="button" @onclick="ProxDia">&#8250</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+@code {
+    private DateTime dia = DateTime.Now;
+
+    private void ProxDia()
+    {
+        dia.AddDays(1);
+        Console.WriteLine(dia);
+    }
+
+    protected void PrevDia()
+    {
+        dia.AddDays(-1);
+        Console.WriteLine(dia);
+    }
+}

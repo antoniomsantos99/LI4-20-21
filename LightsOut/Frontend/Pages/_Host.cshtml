@@ -7,6 +7,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -15,9 +16,71 @@
     <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css" />
     <link href="css/site.css" rel="stylesheet" />
     <link href="LightsOut.styles.css" rel="stylesheet" />
+    <script type='text/javascript'
+        src='https://www.bing.com/api/maps/mapcontrol?key=AvJBk8jswrwMBktJo7SQsVrPbDbz-q87DjiyLgIgj5eAScG46u6_P15z9saUT-et'></script>
+    <script type='text/javascript'>
+
+        var map;
+        function loadMapScenario() {
+            var mapOptions = {
+                zoom: 5
+            };
+
+            mapa = new Microsoft.Maps.Map(document.getElementById('map'), mapOptions);
+
+            var local1 = new Microsoft.Maps.Location(24.6149, -42.1941);
+            var local2 = new Microsoft.Maps.Location(13.6149, 10.1941);
+            var local3 = new Microsoft.Maps.Location(-20.6149, -20.1941);
+
+            var local4 = new Microsoft.Maps.Location(60.6149, 22.1941);
+            var local5 = new Microsoft.Maps.Location(-10.6149, 10.1941);
+
+            var local6 = new Microsoft.Maps.Location(4.6149, -2.1941);
+            var local7 = new Microsoft.Maps.Location(30.6149, 30.1941);
+
+            var provasTerminadas = [local1, local2, local3];
+            var provasDecorrer = [local4, local5];
+            var provasFuturas = [local6, local7];
+
+            provasTerminadas.forEach(function (item, index) {
+                var pin = new Microsoft.Maps.Pushpin(item, {
+                    color: 'green'
+                });
+
+                //Add the pushpin to the map
+                mapa.entities.push(pin);
+            });
+
+            provasDecorrer.forEach(function (item, index) {
+                var pin = new Microsoft.Maps.Pushpin(item, {
+                    color: 'red'
+                });
+
+                //Add the pushpin to the map
+                mapa.entities.push(pin);
+            });
+
+            provasFuturas.forEach(function (item, index) {
+                var pin = new Microsoft.Maps.Pushpin(item, {
+                    color: 'grey'
+                });
+
+                //Add the pushpin to the map
+                mapa.entities.push(pin);
+            });
+
+
+            //Add the pushpin to the map
+            mapa.entities.push(pin);
+        }
+
+    </script>
 </head>
+
 <body>
     <component type="typeof(App)" render-mode="ServerPrerendered" />
+
+    <div id='map' style='width: 100vw; height: 100vh;'></div>
 
     <div id="blazor-error-ui">
         <environment include="Staging,Production">
@@ -29,7 +92,7 @@
         <a href="" class="reload">Reload</a>
         <a class="dismiss">🗙</a>
     </div>
-
     <script src="_framework/blazor.server.js"></script>
 </body>
+
 </html>
