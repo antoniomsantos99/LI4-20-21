@@ -23,3 +23,24 @@ html[b-iqhk2qen0b] {
     background-size: cover;
     overflow: hidden;
  }
+
+ .page[b-iqhk2qen0b] {
+   position: relative;
+   display: flex;
+   flex-direction: column;
+ }
+
+ .main[b-iqhk2qen0b] {
+  flex: 1;
+  margin: 0px;
+  max-height: 100vh;
+  width: 100%;
+  background-image:  /*linear-gradient(
+      rgba(0, 0, 0, 0.2), 
+      rgba(0, 0, 0, 0.4)
+    ), */url('homeImage_2.jpg');
+
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  overflow: hidden;
+}

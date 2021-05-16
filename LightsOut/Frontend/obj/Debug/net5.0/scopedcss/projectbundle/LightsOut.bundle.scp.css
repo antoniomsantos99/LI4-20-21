@@ -345,7 +345,6 @@ button:hover[b-ihegtjdigl] {
     position: absolute;/*para mapa ficar de acima do filtro*/
     margin-top: 0.5rem;
     background: transparent;
-    z-index: 10;
 }
 
 .row[b-zxhmacjn0q]{
@@ -380,7 +379,12 @@ button:hover[b-zxhmacjn0q] {
     border-radius: 50%;
 }
 
+.contentor[b-zxhmacjn0q] {
+display: flex;
+min-height: 100vh;
+min-width: 100wh;
 
+}
 /* _content/LightsOut/Shared/MainLayout.razor.rz.scp.css */
 .container[b-iqhk2qen0b]{
     background: transparent;/*cor da caixa onde estão elementos*/
@@ -407,6 +411,27 @@ html[b-iqhk2qen0b] {
     background-size: cover;
     overflow: hidden;
  }
+
+ .page[b-iqhk2qen0b] {
+   position: relative;
+   display: flex;
+   flex-direction: column;
+ }
+
+ .main[b-iqhk2qen0b] {
+  flex: 1;
+  margin: 0px;
+  max-height: 100vh;
+  width: 100%;
+  background-image:  /*linear-gradient(
+      rgba(0, 0, 0, 0.2), 
+      rgba(0, 0, 0, 0.4)
+    ), */url('homeImage_2.jpg');
+
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  overflow: hidden;
+}
 /* _content/LightsOut/Shared/NavMenu.razor.rz.scp.css */
 .navbar-toggler[b-2ckyjn3pwu] {
     background-color: rgba(16, 230, 26, 0.966);
