@@ -38,7 +38,7 @@ namespace LightsOut
             Console.WriteLine("Epocas Adicionadas!");
         }
         
-        async void loadCircuitos()
+        void loadCircuitos()
         {
             /*Conecta á base de dados*/
             using (var connection = new SqlConnection(conString))
@@ -66,9 +66,9 @@ namespace LightsOut
 
         /* Carrega lista de Países para a base de dados */
         void loadCountries()
-        {
+        {   
             /* Cria uma lista de tuplos com todos os países tal como a sua respetiva nacionalidade*/
-            List<Tuple<String, String>> countries = LoadJson("D:\\DEV\\GitHub projects\\LI4-20-21\\LightsOut\\Backend\\DataManager\\Countries.json")
+            List<Tuple<String, String>> countries = LoadJson("C:\\Users\\Carlos Preto\\Desktop\\3ºAno MIEI\\2º Semestre\\LI4\\LightsOut\\Backend\\DataManager\\Countries.json")
                 .Select(x => new Tuple<String, String>(x["en_short_name"], x["nationality"]))
                     .ToList();
 
@@ -116,7 +116,7 @@ namespace LightsOut
         {
             DataManager dm = new DataManager();
             dm.loadCountries();
-            dm.loadEpocas(2010,2020);
+            dm.loadEpocas(2018,2020);
             dm.loadCircuitos();
         }
     }

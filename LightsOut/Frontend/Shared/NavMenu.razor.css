@@ -27,21 +27,22 @@
         color: #ffffff;
         height: 3rem;
         display: flex;
-        font-weight: bold;
         align-items: center;
         font-family: monospace;
         padding-left: 50px;
         padding-right: 50px;
     }
 
-.nav-item ::deep a.active { /*como fica a palavra e icon quando esta selecionado*/
-    background-color: rgb(255, 255, 255);
+.nav-item ::deep a:active { /*como fica a palavra e icon quando esta selecionado*/
     text-decoration: none;
+    font-weight: bold;
     color: white;
 }
 
 .nav-item ::deep a:hover{ /*como fica a palavra e icon quando passamos por cima*/
     text-decoration: none;
+    background: transparent;
+    font-weight: bold;
     color: rgb(255, 255, 255);
 }
 

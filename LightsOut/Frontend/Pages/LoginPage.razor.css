@@ -4,7 +4,7 @@
     background: rgb(255, 255, 255);
     border: 5px solid rgb(27, 230, 213);
     color: rgb(0, 0, 0);/*cor das palavras*/
-    top: 60%;
+    top: 50%;
     left: 50%;
     position: absolute;
     transform: translate(-50%, -50%);
@@ -14,11 +14,11 @@
 }
 
 .avatar{
-    width: 230px;
-    height: 70px;
+    width: 300px;
+    height: 100px;
     position: absolute;
-    top: -80px;
-    left: 10%;
+    top: -120px;
+    left: -1%;
 }
 
 .loginBox p{

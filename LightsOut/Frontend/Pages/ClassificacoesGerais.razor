@@ -5,31 +5,28 @@
 
 <div class="classificacoes">
 
-    <div class="row">
-        <div class="filtros">
-            <div class="row">
-                <button type="button" @onclick="PrevEpoca">&#8249</button>
-                <p>Época @(epocaPretendida-1)/@epocaPretendida</p>
-                <button type="button" @onclick="ProxEpoca">&#8250</button>
-            </div>
-
-            <div class="row">
-                <button type="button" @onclick="PrevProva">&#8249</button>
-                <p>Prova @provaPretendida</p>
-                <button type="button" @onclick="ProxProva">&#8250</button>
-            </div>
+    <div class="filtros">
+        <div class="row">
+            <button type="button" @onclick="PrevEpoca">&#8249</button>
+            <p>Época @(epocaPretendida-1)/@epocaPretendida</p>
+            <button type="button" @onclick="ProxEpoca">&#8250</button>
         </div>
-        <h1>Classificações Gerais</h1>
+
+        <div class="row">
+            <button type="button" @onclick="PrevProva">&#8249</button>
+            <p>Prova @provaPretendida</p>
+            <button type="button" @onclick="ProxProva">&#8250</button>
+        </div>
     </div>
 
     <div class="leftTable">
         <h1>Classificação Geral Pilotos</h1>
 
-        @foreach (var piloto in pilotos)
+        @foreach (var local in localizacoes)
         {
             <div class="skillBox">
-                <p>@piloto.Nome</p>
-                <p>@piloto.Pontos</p>
+                <p>@local.nome</p>
+                <p>@local.nacionalidade</p>
                 <div class="skill">
                     <div class="skill_level" style=("width:" + @piloto.Pontos + "%" )></div>
                 </div>
@@ -67,6 +64,7 @@
 
 @code {
     private Piloto[] pilotos;
+    private List<Localizacao> localizacoes;
     private int provaPretendida = 1;
     private int epocaPretendida = 2021;
 
@@ -98,6 +96,9 @@
 
     protected override async Task OnInitializedAsync()
     {
+        
+        Localizacao l = new Localizacao();
+        localizacoes = l.GetLocalizacoes();
         pilotos = await PilotoService.GetClassificacao();
     }
 }

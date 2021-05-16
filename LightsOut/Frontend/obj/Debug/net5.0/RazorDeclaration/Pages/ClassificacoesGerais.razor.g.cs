@@ -13,77 +13,77 @@ namespace LightsOut.Pages
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Components;
 #nullable restore
-#line 1 "D:\DEV\GitHub projects\LI4-20-21\LightsOut\Frontend\_Imports.razor"
+#line 1 "c:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\_Imports.razor"
 using System.Net.Http;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "D:\DEV\GitHub projects\LI4-20-21\LightsOut\Frontend\_Imports.razor"
+#line 2 "c:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\_Imports.razor"
 using Microsoft.AspNetCore.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "D:\DEV\GitHub projects\LI4-20-21\LightsOut\Frontend\_Imports.razor"
+#line 3 "c:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\_Imports.razor"
 using Microsoft.AspNetCore.Components.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 4 "D:\DEV\GitHub projects\LI4-20-21\LightsOut\Frontend\_Imports.razor"
+#line 4 "c:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\_Imports.razor"
 using Microsoft.AspNetCore.Components.Forms;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 5 "D:\DEV\GitHub projects\LI4-20-21\LightsOut\Frontend\_Imports.razor"
+#line 5 "c:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\_Imports.razor"
 using Microsoft.AspNetCore.Components.Routing;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 6 "D:\DEV\GitHub projects\LI4-20-21\LightsOut\Frontend\_Imports.razor"
+#line 6 "c:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\_Imports.razor"
 using Microsoft.AspNetCore.Components.Web;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 7 "D:\DEV\GitHub projects\LI4-20-21\LightsOut\Frontend\_Imports.razor"
+#line 7 "c:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\_Imports.razor"
 using Microsoft.AspNetCore.Components.Web.Virtualization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 8 "D:\DEV\GitHub projects\LI4-20-21\LightsOut\Frontend\_Imports.razor"
+#line 8 "c:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\_Imports.razor"
 using Microsoft.JSInterop;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 9 "D:\DEV\GitHub projects\LI4-20-21\LightsOut\Frontend\_Imports.razor"
+#line 9 "c:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\_Imports.razor"
 using LightsOut;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 10 "D:\DEV\GitHub projects\LI4-20-21\LightsOut\Frontend\_Imports.razor"
+#line 10 "c:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\_Imports.razor"
 using LightsOut.Shared;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "D:\DEV\GitHub projects\LI4-20-21\LightsOut\Frontend\Pages\ClassificacoesGerais.razor"
+#line 3 "c:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\Pages\ClassificacoesGerais.razor"
 using LightsOut.Data;
 
 #line default
@@ -98,9 +98,10 @@ using LightsOut.Data;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 68 "D:\DEV\GitHub projects\LI4-20-21\LightsOut\Frontend\Pages\ClassificacoesGerais.razor"
+#line 65 "c:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\Pages\ClassificacoesGerais.razor"
        
     private Piloto[] pilotos;
+    private List<Localizacao> localizacoes;
     private int provaPretendida = 1;
     private int epocaPretendida = 2021;
 
@@ -132,6 +133,9 @@ using LightsOut.Data;
 
     protected override async Task OnInitializedAsync()
     {
+        
+        Localizacao l = new Localizacao();
+        localizacoes = l.GetLocalizacoes();
         pilotos = await PilotoService.GetClassificacao();
     }
 

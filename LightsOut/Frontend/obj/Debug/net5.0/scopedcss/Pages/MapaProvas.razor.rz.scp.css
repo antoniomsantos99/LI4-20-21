@@ -1,12 +1,7 @@
-.map[b-zxhmacjn0q]{
-    margin-top: 1.5rem;
-    position: relative;/*para mapa ficar de baixo do filtro*/
-    z-index: 2;
-}
-
 .filtros[b-zxhmacjn0q]{
     position: absolute;/*para mapa ficar de acima do filtro*/
-    margin-top: 0.5rem;
+    margin-top: 5rem;
+    margin-left: 10rem;
     background: transparent;
 }
 
@@ -43,8 +38,8 @@ button:hover[b-zxhmacjn0q] {
 }
 
 .contentor[b-zxhmacjn0q] {
-display: flex;
-min-height: 100vh;
-min-width: 100wh;
-
+    display: flex;
+    width: 100vw;
+    margin-top: 1.4rem;
+    
 }

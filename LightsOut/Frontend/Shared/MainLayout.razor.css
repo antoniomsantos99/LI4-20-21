@@ -1,46 +1,40 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  position: absolute; 
+  right: 0;/*
+  top: 10rem;*/
+  bottom: 0;
+  min-width: 100%; 
+  min-height: 100vh;
+  overflow: hidden;/*esconder barra de scroll*/
+ }
+
 .container{
-    background: transparent;/*cor da caixa onde estão elementos*/
-    justify-content: center;
-}
-
-
-html {
-    margin: 0px;
-    height: 100%;
-    width: 100%;
- }
- 
- body {
-    margin: 0px;
-    max-height: 100vh;/*para tamanho de fundo ser sempre mesmo*/
-    width: 100%;
-    background-image:  linear-gradient(
-        rgba(0, 0, 0, 0.6), 
-        rgba(0, 0, 0, 0.7)
-      ), url('homeImage_2.jpg');
-      
-    background-repeat: no-repeat;
-    background-size: cover;
-    overflow: hidden;
- }
-
- .page {
-   position: relative;
-   display: flex;
-   flex-direction: column;
- }
-
- .main {
-  flex: 1;
-  margin: 0px;
-  max-height: 100vh;
-  width: 100%;
-  background-image:  /*linear-gradient(
-      rgba(0, 0, 0, 0.2), 
-      rgba(0, 0, 0, 0.4)
-    ), */url('homeImage_2.jpg');
-
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  right: 0;/*
+  top: 10rem;*/
+  background-image:  linear-gradient(
+      rgba(0, 0, 0, 0.5), 
+      rgba(0, 0, 0, 0.7)
+    ), url('homeImage_2.jpg');
   background-repeat: no-repeat;
   background-size: 100% 100%;
+  top: 4.5rem;
+  min-width: 100%; 
+  min-height: 100vh;
   overflow: hidden;
+}
+
+html {
+  margin: 0px;
+  height: 100vh;
+  width: 100%;
+}
+
+ * {
+  margin: 0;
+  padding: 0;
 }
