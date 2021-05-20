@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "J6Mdt9gohEts2VIezmRrOe4D+q3vEpORsXHkLNxBew50rV984e1njEdeeE3gXNWc6YiH+DQVrbjpZvsDo3AV/g==",
+  "dgSpecHash": "auUuuflk+LY5WrGCQSpGUhDtYrNmMIdZHq7OM0YstTFCtW61DKT/lKSJViHA+sSviUVkOLVBV/uoyZida6Mm0Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Carlos Preto\\Desktop\\3ºAno MIEI\\2º Semestre\\LI4\\LightsOut_errado\\LightsOut\\Backend\\DataManager\\Backend.csproj",
+  "projectFilePath": "C:\\Users\\Carlos Preto\\Desktop\\3ºAno MIEI\\2º Semestre\\LI4\\LightsOut\\Backend\\DataManager\\Backend.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Carlos Preto\\.nuget\\packages\\dapper\\2.0.90\\dapper.2.0.90.nupkg.sha512",
     "C:\\Users\\Carlos Preto\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",

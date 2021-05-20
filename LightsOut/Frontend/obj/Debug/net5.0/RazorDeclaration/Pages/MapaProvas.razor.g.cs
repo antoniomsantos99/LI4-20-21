@@ -13,71 +13,99 @@ namespace LightsOut.Pages
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Components;
 #nullable restore
-#line 1 "c:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\_Imports.razor"
+#line 1 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\_Imports.razor"
 using System.Net.Http;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "c:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\_Imports.razor"
+#line 2 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\_Imports.razor"
 using Microsoft.AspNetCore.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "c:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\_Imports.razor"
+#line 3 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\_Imports.razor"
 using Microsoft.AspNetCore.Components.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 4 "c:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\_Imports.razor"
+#line 4 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\_Imports.razor"
 using Microsoft.AspNetCore.Components.Forms;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 5 "c:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\_Imports.razor"
+#line 5 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\_Imports.razor"
 using Microsoft.AspNetCore.Components.Routing;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 6 "c:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\_Imports.razor"
+#line 6 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\_Imports.razor"
 using Microsoft.AspNetCore.Components.Web;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 7 "c:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\_Imports.razor"
+#line 7 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\_Imports.razor"
 using Microsoft.AspNetCore.Components.Web.Virtualization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 8 "c:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\_Imports.razor"
+#line 8 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\_Imports.razor"
 using Microsoft.JSInterop;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 9 "c:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\_Imports.razor"
+#line 9 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\_Imports.razor"
 using LightsOut;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 10 "c:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\_Imports.razor"
+#line 10 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\_Imports.razor"
 using LightsOut.Shared;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 3 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\Pages\MapaProvas.razor"
+using LightsOut.Data;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 4 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\Pages\MapaProvas.razor"
+using System.Net.Http.Json;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 5 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\Pages\MapaProvas.razor"
+using System.Text.Json.Serialization;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 6 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\Pages\MapaProvas.razor"
+using Newtonsoft.Json;
 
 #line default
 #line hidden
@@ -91,90 +119,93 @@ using LightsOut.Shared;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 18 "c:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\Pages\MapaProvas.razor"
+#line 22 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\Pages\MapaProvas.razor"
        
-    private DateTime dia = DateTime.Now;
+    private DateTime dia = DateTime.Parse("2019-03-14");
+    private Prova prova = new Prova();
+    private List<Prova> provas = new List<Prova>();
+    private Localizacao local = new Localizacao();
+    private List<Localizacao> localizacoes = new List<Localizacao>();
+    private List<List<float>> locais = new List<List<float>>();
 
-    private void ProxDia()
-
-
-
-    {
+    private void ProxDia(){
 
         DateTime d = dia.AddDays(1);
-
         dia = d;
-
-
-
         base.StateHasChanged();
-
-
-
-        Console.WriteLine(dia);
-
-
-
     }
 
-
-
-
-
-
-
-    protected void PrevDia()
-
-
-
-    {
-
-
+    protected void PrevDia(){
 
         DateTime d = dia.AddDays(-1);
-
         dia = d;
-
-
-
         base.StateHasChanged();
-
-
-
         Console.WriteLine(dia);
-
-
-
     }
 
+    protected List<List<float>> getCoord(List<Prova> provas){
+        List<List<float>> result = new List<List<float>>();
 
-
-    protected override async Task OnAfterRenderAsync(bool firstRender)
-
-    {
-
-        if (firstRender)
-
-        {
-
-
-
-            //localizacoes = await getLocal();
-
-            //locais = await getCoord();/
-
-            await JSRuntime.InvokeVoidAsync("console.log", "Hello");
-
-            //await JSRuntime.InvokeVoidAsync("initialMap", null);
-
-            await JSRuntime.InvokeVoidAsync("loadMapScenario", null);
-
-
-
-            StateHasChanged();
-
+        foreach (Prova prova in provas){
+            List<float> coord = new List<float>();
+            coord.Add(prova.localizacao.latitude);
+            coord.Add(prova.localizacao.longitude);
+            result.Add(coord);
         }
+        
+        return result;
+    }
+    
+    protected List<string> getNomes(List<Prova> provas){
+        List<string> result = new List<string>();
 
+        foreach (Prova prova in provas){
+            result.Add(prova.id);
+        }
+        
+        return result;
+    }
+    
+    protected override async Task OnAfterRenderAsync(bool firstRender) {
+
+        if (firstRender){
+            
+            string rondaText = dia.ToString("MM");
+            int ronda = Int32.Parse(rondaText);
+            provas = prova.ppppp(2019, ronda);
+            
+            /*
+            localizacoes = prova.GetProvasIntervalo(2020, ronda);
+            locais = getCoord(localizacoes);*/
+            //await JSRuntime.InvokeVoidAsync("initialMap", null);
+            
+            List<string> res = new List<string>();
+            foreach (var p in provas)
+            {
+                res.Add(JsonConvert.SerializeObject(p));
+            }
+            
+            await JSRuntime.InvokeVoidAsync("loadMapScenario", res,dia);
+            //StateHasChanged();
+        }
+        else{
+            string rondaText = dia.ToString("MM");
+            int ronda = Int32.Parse(rondaText);
+            provas = prova.ppppp(2019, ronda);
+            
+            /*
+            localizacoes = prova.GetProvasIntervalo(2020, ronda);
+            locais = getCoord(localizacoes);*/
+            //await JSRuntime.InvokeVoidAsync("initialMap", null);
+            List<string> res = new List<string>();
+            foreach (var p in provas)
+            {
+                res.Add(JsonConvert.SerializeObject(p));
+            }
+            
+            await JSRuntime.InvokeVoidAsync("loadMapScenario", res,dia);
+            //StateHasChanged();
+        }
     }
 
 #line default

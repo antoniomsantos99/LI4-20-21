@@ -1,26 +1,14 @@
-@page "/classificacoesGerais"
+@page "/resultados"
 
 @using LightsOut.Data
 @inject PilotoService PilotoService
 
 <div class="classificacoes">
 
-    <div class="filtros">
-        <div class="row">
-            <button type="button" @onclick="PrevEpoca">&#8249</button>
-            <p>Época @(epocaPretendida-1)/@epocaPretendida</p>
-            <button type="button" @onclick="ProxEpoca">&#8250</button>
-        </div>
-
-        <div class="row">
-            <button type="button" @onclick="PrevProva">&#8249</button>
-            <p>Prova @provaPretendida</p>
-            <button type="button" @onclick="ProxProva">&#8250</button>
-        </div>
-    </div>
+    <h1>2021 Italian Grand Prix</h1>
 
     <div class="leftTable">
-        <h1>Classificação Geral Pilotos</h1>
+        <h1>Classificação Pilotos</h1>
 
         @foreach (var local in localizacoes)
         {
@@ -35,7 +23,7 @@
     </div>
 
     <div class="rightTable">
-        <h1>Classificação Geral Equipas</h1>
+        <h1>Qualificao </h1>
         <div class="skillBox">
             <p>Mercedes-Benz</p>
             <p>89</p>

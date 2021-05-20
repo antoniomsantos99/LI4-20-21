@@ -5,19 +5,18 @@ Table Utilizador as U {
 }
 
 Table Notificacao {
-  id int [pk]
-  nome varchar 
+  id int [pk, increment] 
   idUtilizador int [ref: > Utilizador.id]
+  idProva varchar [ref: > Prova.id]
 }
 
 Table Prova {
-  id int [pk, increment]
+  id varchar [pk]
   idEpoca int [ref: > Epoca.ano]
+  ronda int
   nomeProva varchar
-  nomeCircuito varchar
-  data datetime
+  data date
   horaProva time
-  idNotificacao int [ref: > Notificacao.id]
   idLocalizacao varchar [ref: > Localizacao.id]
   }
 
@@ -34,20 +33,21 @@ Table Localizacao {
 }
 
 Table Qualificacao {
-  idProva int [pk, ref: > Prova.id]
+  idProva varchar [pk, ref: > Prova.id]
   idPiloto varchar [ref: > Piloto.id]
   posicaoQualificacao int
-  qualificao1 time
-  qualificao2 time
-  qualificao3 time
+  qualificao1 varchar
+  qualificao2 varchar
+  qualificao3 varchar
 }
 
 Table Resultado {
-  idProva int [pk, ref: > Prova.id]
+  id int [pk, increment]
+  idProva varchar [ref: > Prova.id]
   idPiloto varchar [ref: > Piloto.id]
   posicaoFinal int
   posicaoInicial int
-  tempo time
+  tempo varchar
   pontos int
   estado varchar
 }
@@ -55,18 +55,19 @@ Table Resultado {
 Table Piloto {
   id varchar [pk]
   nome varchar
-  numero int
-  dataNascimento date
-  nacionalidade varchar [ref: > Pais.nome]
-  equipaId int [ref: > Equipa.id]
+}
+
+Table PilotoEquipa {
+  id int [pk, increment] 
+  idPiloto varchar [ref: > Piloto.id]
+  idEquipa varchar [ref: > Equipa.id]
+  idEpoca int [ref: > Epoca.ano]
 }
 
 Table Equipa {
-  id int [pk,increment]
+  id varchar [pk]
   nome varchar
-  nacionalidade varchar [ref: > Pais.nome]
-  idEpoca int [ref: > Epoca.ano]
-  
+  nacionalidade varchar
 }
 
 Table Pais {

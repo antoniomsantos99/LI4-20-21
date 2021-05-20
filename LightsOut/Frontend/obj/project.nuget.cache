@@ -1,12 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "Zo0XJS/1+BraUkm6YcdONALnXnUMmZJFq+rkTCRy7CD1CQAR45kmJ36a1h2xvtTVq8jt5ih3+bo3wP3OKd3VzA==",
+  "dgSpecHash": "AHMVAEyfn4xyQwZZh8hCHmlCMkwAKRf2YndOSXpu0zi+2Sd4ZQplZAMGlWUCHK+fJk+K3VMyA93cpSH3LO+N1w==",
   "success": true,
   "projectFilePath": "C:\\Users\\Carlos Preto\\Desktop\\3ºAno MIEI\\2º Semestre\\LI4\\LightsOut\\Frontend\\LightsOut.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Carlos Preto\\.nuget\\packages\\dapper\\2.0.90\\dapper.2.0.90.nupkg.sha512",
     "C:\\Users\\Carlos Preto\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\Carlos Preto\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
+    "C:\\Users\\Carlos Preto\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
     "C:\\Users\\Carlos Preto\\.nuget\\packages\\runtime.native.system.data.sqlclient.sni\\4.7.0\\runtime.native.system.data.sqlclient.sni.4.7.0.nupkg.sha512",
     "C:\\Users\\Carlos Preto\\.nuget\\packages\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
     "C:\\Users\\Carlos Preto\\.nuget\\packages\\runtime.win-x64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",

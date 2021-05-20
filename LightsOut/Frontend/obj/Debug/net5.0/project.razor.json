@@ -45,39 +45,6 @@
         }
       },
       {
-        "HashCode": -1702426681,
-        "Kind": "Components.Component",
-        "Name": "LightsOut.Pages.ClassificacoesGerais",
-        "AssemblyName": "LightsOut",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "ClassificacoesGerais"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "LightsOut.Pages.ClassificacoesGerais"
-        }
-      },
-      {
-        "HashCode": -1344686746,
-        "Kind": "Components.Component",
-        "Name": "LightsOut.Pages.ClassificacoesGerais",
-        "AssemblyName": "LightsOut",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "LightsOut.Pages.ClassificacoesGerais"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "LightsOut.Pages.ClassificacoesGerais",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
-        }
-      },
-      {
         "HashCode": 1615002330,
         "Kind": "Components.Component",
         "Name": "LightsOut.Pages.EquipasEPilotos",
@@ -206,6 +173,72 @@
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
           "Common.TypeName": "LightsOut.Pages.LoginPage",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": 1743649441,
+        "Kind": "Components.Component",
+        "Name": "LightsOut.Pages.Resultado",
+        "AssemblyName": "LightsOut",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Resultado"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "LightsOut.Pages.Resultado"
+        }
+      },
+      {
+        "HashCode": 1715289373,
+        "Kind": "Components.Component",
+        "Name": "LightsOut.Pages.Resultado",
+        "AssemblyName": "LightsOut",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "LightsOut.Pages.Resultado"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "LightsOut.Pages.Resultado",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": -1702426681,
+        "Kind": "Components.Component",
+        "Name": "LightsOut.Pages.ClassificacoesGerais",
+        "AssemblyName": "LightsOut",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "ClassificacoesGerais"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "LightsOut.Pages.ClassificacoesGerais"
+        }
+      },
+      {
+        "HashCode": -1344686746,
+        "Kind": "Components.Component",
+        "Name": "LightsOut.Pages.ClassificacoesGerais",
+        "AssemblyName": "LightsOut",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "LightsOut.Pages.ClassificacoesGerais"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "LightsOut.Pages.ClassificacoesGerais",
           "Components.NameMatch": "Components.FullyQualifiedNameMatch"
         }
       },
@@ -16122,6 +16155,11 @@
     {
       "FilePath": "c:\\Users\\Carlos Preto\\Desktop\\3ºAno MIEI\\2º Semestre\\LI4\\LightsOut\\Frontend\\Pages\\LoginPage.razor",
       "TargetPath": "Pages\\LoginPage.razor",
+      "FileKind": "component"
+    },
+    {
+      "FilePath": "c:\\Users\\Carlos Preto\\Desktop\\3ºAno MIEI\\2º Semestre\\LI4\\LightsOut\\Frontend\\Pages\\Resultado.razor",
+      "TargetPath": "Pages\\Resultado.razor",
       "FileKind": "component"
     },
     {
