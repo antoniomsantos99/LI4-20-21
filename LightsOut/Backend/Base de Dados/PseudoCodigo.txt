@@ -33,7 +33,8 @@ Table Localizacao {
 }
 
 Table Qualificacao {
-  idProva varchar [pk, ref: > Prova.id]
+  id int [pk, increment]
+  idProva varchar [ref: > Prova.id]
   idPiloto varchar [ref: > Piloto.id]
   posicaoQualificacao int
   qualificao1 varchar

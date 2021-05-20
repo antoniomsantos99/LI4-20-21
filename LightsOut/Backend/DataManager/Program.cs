@@ -180,7 +180,6 @@ namespace LightsOut
                             result["points"], 
                             result["status"]);
                         
-                        Console.WriteLine(sql);
                         connection.Query(sql);   
                     }
 
@@ -207,13 +206,12 @@ namespace LightsOut
                         var sql = String.Format(
                             "If Not Exists(select * from [LightsOut].[dbo].Qualificacao where idPiloto = \'{0}\' and idProva = \'{1}\') begin insert into [LightsOut].[dbo].Qualificacao values (\'{1}\',\'{0}\',{2}, \'{3}\', \'{4}\',\'{5}\') end",
                             qualificacao["Driver"]["driverId"],
-                            qualificacao["MRData"]["RaceTable"]["Races"][0]["raceName"].ToString().Replace(" ", "") + qualificacao["MRData"]["RaceTable"]["Races"][0]["season"],
+                            qualificacoes["MRData"]["RaceTable"]["Races"][0]["raceName"].ToString().Replace(" ", "") + qualificacoes["MRData"]["RaceTable"]["Races"][0]["season"],
                             qualificacao["position"],
-                            qualificacao["Q1"] != null ? qualificacao["Q1"] : "Eliminated",
+                            qualificacao["Q1"] != null || qualificacao["Q1"].ToString().Length == 0 ? qualificacao["Q1"] : "Eliminated",
                             qualificacao["Q2"] != null ? qualificacao["Q2"] : "Eliminated",
                             qualificacao["Q3"] != null ? qualificacao["Q3"] : "Eliminated");
                         
-                        Console.WriteLine(sql);
                         connection.Query(sql);   
                     }
 
@@ -227,7 +225,7 @@ namespace LightsOut
         void loadCountries()
         {   
             /* Cria uma lista de tuplos com todos os países tal como a sua respetiva nacionalidade*/
-            List<Tuple<String, String>> countries = LoadJson("C:\\Users\\Carlos Preto\\Desktop\\3ºAno MIEI\\2º Semestre\\LI4\\LightsOut\\Backend\\DataManager\\Countries.json")
+            List<Tuple<String, String>> countries = LoadJson("../../../Countries.json")
                 .Select(x => new Tuple<String, String>(x["en_short_name"], x["nationality"]))
                     .ToList();
 
@@ -281,7 +279,7 @@ namespace LightsOut
             dm.loadProvas();
             dm.loadPilotos();
             dm.loadEquipas();
-            //dm.loadResults();
+            dm.loadResults();
             dm.loadQualificacao();
             Prova p = new Prova();
             p.ppppp(2019, 7);
