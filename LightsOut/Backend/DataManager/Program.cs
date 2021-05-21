@@ -11,7 +11,6 @@ using System.Xml;
 using System.Xml.Linq;
 using Newtonsoft.Json;
 using Dapper;
-using LightsOut.Data;
 using Newtonsoft.Json.Linq;
 
 namespace LightsOut
@@ -108,15 +107,10 @@ namespace LightsOut
                     {
                         var sql = String.Format(
                             "If Not Exists(select * from [LightsOut].[dbo].Piloto where id=\'{0}\') Begin insert into [LightsOut].[dbo].Piloto values (\'{0}\',\'{1}\') End",
-                            piloto["driverId"], piloto["givenName"] + " " + piloto["familyName"]);
-                        var res = connection.Query(sql);
+                            piloto["driverId"], piloto["givenName"].ToString().Replace("'", "`") + " " + piloto["familyName"].ToString().Replace("'", "`"));
                         
-                        /*
-                        sql = String.Format(
-                            "If Not Exists(select * from [LightsOut].[dbo].PilotoEquipa where idPiloto=\'{0}\' and idEpoca=\'{2}\') Begin insert into [LightsOut].[dbo].PilotoEquipa values (\'{0}\',\'{1}\', {2}) End",
-                            piloto["driverId"], , epoca);
-                        res = connection.Query(sql);
-                        */
+                        //Console.WriteLine(sql);
+                        var res = connection.Query(sql);
                     }
                 }
                 
@@ -168,20 +162,27 @@ namespace LightsOut
                 foreach (var prova in provas)
                 {
                     JObject results = getJsonFromURL(String.Format("http://ergast.com/api/f1/{0}/{1}/results.json",prova.idEpoca, prova.ronda));
-
-                    foreach (var result in results["MRData"]["RaceTable"]["Races"][0]["Results"].ToList())
+                    var corridas = results["MRData"]["RaceTable"]["Races"] as JArray;
+                    
+                   // Console.WriteLine(String.Format("http://ergast.com/api/f1/{0}/{1}/results.json",prova.idEpoca, prova.ronda));
+                    if (corridas.Count() != 0)
                     {
-                        var sql = String.Format("If Not Exists(select * from [LightsOut].[dbo].Resultado where idPiloto = \'{0}\' and idProva = \'{1}\') begin insert into [LightsOut].[dbo].Resultado values (\'{1}\',\'{0}\',{2}, {3}, \'{4}\',{5},\'{6}\') end",
-                            result["Driver"]["driverId"], 
-                            results["MRData"]["RaceTable"]["Races"][0]["raceName"].ToString().Replace(" ", "") +  results["MRData"]["RaceTable"]["Races"][0]["season"], 
-                            result["position"], 
-                            result["grid"], 
-                            result["Time"] != null ? result["Time"]["time"] : "Retired", 
-                            result["points"], 
-                            result["status"]);
-                        
-                        Console.WriteLine(sql);
-                        connection.Query(sql);   
+                        foreach (var result in results["MRData"]["RaceTable"]["Races"][0]["Results"].ToList())
+                        {
+                            var sql = String.Format(
+                                "If Not Exists(select * from [LightsOut].[dbo].Resultado where idPiloto = \'{0}\' and idProva = \'{1}\') begin insert into [LightsOut].[dbo].Resultado values (\'{1}\',\'{0}\',{2}, {3}, \'{4}\',{5},\'{6}\') end",
+                                result["Driver"]["driverId"],
+                                results["MRData"]["RaceTable"]["Races"][0]["raceName"].ToString().Replace(" ", "") +
+                                results["MRData"]["RaceTable"]["Races"][0]["season"],
+                                result["position"],
+                                result["grid"],
+                                result["Time"] != null ? result["Time"]["time"] : "Retired",
+                                result["points"],
+                                result["status"]);
+
+                            Console.WriteLine(sql);
+                            connection.Query(sql);
+                        }
                     }
 
                 }
@@ -202,21 +203,27 @@ namespace LightsOut
                 {
                     JObject qualificacoes = getJsonFromURL(String.Format("http://ergast.com/api/f1/{0}/{1}/qualifying.json",prova.idEpoca, prova.ronda));
 
-                    foreach (var qualificacao in qualificacoes["MRData"]["RaceTable"]["Races"][0]["QualifyingResults"].ToList())
+                    var corridas = qualificacoes["MRData"]["RaceTable"]["Races"] as JArray;
+                    
+                    if (corridas.Count() != 0)
                     {
-                        var sql = String.Format(
-                            "If Not Exists(select * from [LightsOut].[dbo].Qualificacao where idPiloto = \'{0}\' and idProva = \'{1}\') begin insert into [LightsOut].[dbo].Qualificacao values (\'{1}\',\'{0}\',{2}, \'{3}\', \'{4}\',\'{5}\') end",
-                            qualificacao["Driver"]["driverId"],
-                            qualificacao["MRData"]["RaceTable"]["Races"][0]["raceName"].ToString().Replace(" ", "") + qualificacao["MRData"]["RaceTable"]["Races"][0]["season"],
-                            qualificacao["position"],
-                            qualificacao["Q1"] != null ? qualificacao["Q1"] : "Eliminated",
-                            qualificacao["Q2"] != null ? qualificacao["Q2"] : "Eliminated",
-                            qualificacao["Q3"] != null ? qualificacao["Q3"] : "Eliminated");
-                        
-                        Console.WriteLine(sql);
-                        connection.Query(sql);   
-                    }
+                        foreach (var qualificacao in qualificacoes["MRData"]["RaceTable"]["Races"][0][
+                            "QualifyingResults"].ToList())
+                        {
+                            var sql = String.Format(
+                                "If Not Exists(select * from [LightsOut].[dbo].Qualificacao where idPiloto = \'{0}\' and idProva = \'{1}\') begin insert into [LightsOut].[dbo].Qualificacao values (\'{1}\',\'{0}\',{2}, \'{3}\', \'{4}\',\'{5}\') end",
+                                qualificacao["Driver"]["driverId"],
+                                qualificacoes["MRData"]["RaceTable"]["Races"][0]["raceName"].ToString()
+                                    .Replace(" ", "") + qualificacoes["MRData"]["RaceTable"]["Races"][0]["season"],
+                                qualificacao["position"],
+                                qualificacao["Q1"] != null ? qualificacao["Q1"] : "Eliminated",
+                                qualificacao["Q2"] != null ? qualificacao["Q2"] : "Eliminated in Q1",
+                                qualificacao["Q3"] != null ? qualificacao["Q3"] : "Eliminated in Q2");
 
+                            //Console.WriteLine(sql);
+                            connection.Query(sql);
+                        }
+                    }
                 }
             }
         }
@@ -276,15 +283,13 @@ namespace LightsOut
             DataManager dm = new DataManager();
             
             dm.loadCountries();
-            dm.loadEpocas(2018,2020);
+            dm.loadEpocas(2000,2021);
             dm.loadCircuitos();
             dm.loadProvas();
             dm.loadPilotos();
             dm.loadEquipas();
-            //dm.loadResults();
+            dm.loadResults();
             dm.loadQualificacao();
-            Prova p = new Prova();
-            p.ppppp(2019, 7);
         }
     }
 }

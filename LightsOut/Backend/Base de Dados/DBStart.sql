@@ -38,12 +38,13 @@ CREATE TABLE [Localizacao] (
     GO
 
 CREATE TABLE [Qualificacao] (
-    [idProva] nvarchar(255) PRIMARY KEY,
+    [id] int PRIMARY KEY IDENTITY(1, 1),
+    [idProva] nvarchar(255),
     [idPiloto] nvarchar(255),
     [posicaoQualificacao] int,
-    [qualificao1] nvarchar(255),
-    [qualificao2] nvarchar(255),
-    [qualificao3] nvarchar(255)
+    [qualificacao1] nvarchar(255),
+    [qualificacao2] nvarchar(255),
+    [qualificacao3] nvarchar(255)
     )
     GO
 

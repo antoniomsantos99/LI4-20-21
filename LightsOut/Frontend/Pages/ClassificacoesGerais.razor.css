@@ -130,8 +130,15 @@ button:hover {
     border-radius: 2px;
 }
 
+/*
+.skill_level:first-child{
+    background: rgb(56, 65, 123);
+    width: 100%;
+    height: 10px;
+}
+
 .skill_level{
     background: rgb(0, 232, 240);
     width: 100%;
     height: 10px;
-}
+}*/

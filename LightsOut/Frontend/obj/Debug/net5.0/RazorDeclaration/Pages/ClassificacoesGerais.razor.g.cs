@@ -98,45 +98,63 @@ using LightsOut.Data;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 65 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\Pages\ClassificacoesGerais.razor"
+#line 97 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\Pages\ClassificacoesGerais.razor"
        
-    private Piloto[] pilotos;
-    private List<Localizacao> localizacoes;
+    private Resultado resultado = new Resultado();
+    private List<Tuple<string, int>> total = new List<Tuple<string, int>>();
     private int provaPretendida = 1;
-    private int epocaPretendida = 2021;
+    private int epocaPretendida = 2019;
+    private int posicao = 0;
 
     private void ProxProva()
     {
-        provaPretendida++;
+        if (provaPretendida < 22)
+        {
+            provaPretendida++;
+            posicao = 0;
+        }
     }
 
     private void PrevProva()
     {
-        if (provaPretendida >= 1)
+        if (provaPretendida > 1)
         {
             provaPretendida--;
+            posicao = 0;
         }
     }
 
     private void ProxEpoca()
     {
-        epocaPretendida++;
-    }
-
-    protected void PrevEpoca()
-    {
-        if (epocaPretendida >= 1)
+        if (epocaPretendida < 2021)
         {
-            epocaPretendida--;
+            epocaPretendida++;
+            provaPretendida = 1;
+            posicao = 0;
         }
     }
 
-    protected override async Task OnInitializedAsync()
+    private void PrevEpoca()
     {
-        
-        Localizacao l = new Localizacao();
-        localizacoes = l.GetLocalizacoes();
-        pilotos = await PilotoService.GetClassificacao();
+        if (epocaPretendida > 1999)
+        {
+            epocaPretendida--;
+            provaPretendida = 1;
+            posicao = 0;
+        }
+    }
+
+     protected override async Task OnAfterRenderAsync(bool firstRender) {
+    
+        if (firstRender){
+            total = await resultado.ClassificacoesGeraisPiloto(epocaPretendida, provaPretendida);
+            StateHasChanged(); 
+            //Console.WriteLine("sada");
+        }
+        else{
+            total = await resultado.ClassificacoesGeraisPiloto(epocaPretendida, provaPretendida);
+            StateHasChanged();
+        }
     }
 
 #line default

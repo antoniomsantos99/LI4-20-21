@@ -8,7 +8,7 @@
     <div class="filtros">
         <div class="row">
             <button type="button" @onclick="PrevEpoca">&#8249</button>
-            <p>Época @(epocaPretendida-1)/@epocaPretendida</p>
+            <p>Época @epocaPretendida</p>
             <button type="button" @onclick="ProxEpoca">&#8250</button>
         </div>
 
@@ -21,15 +21,47 @@
 
     <div class="leftTable">
         <h1>Classificação Geral Pilotos</h1>
-
-        @foreach (var local in localizacoes)
+        
+        @for (int i = 0; i < total.Count; i++)
         {
             <div class="skillBox">
-                <p>@local.nome</p>
-                <p>@local.nacionalidade</p>
-                <div class="skill">
-                    <div class="skill_level" style="width: 20%"></div>
-                </div>
+                <p>@(posicao+(i+1)) º @total[i].Item1</p>
+                <p>@total[i].Item2</p>
+                
+                @switch (i)
+                {
+                    case 0:
+                    {
+                        <div class="skill">
+                            <div class="skill_level" style="width: @(100 * total[i].Item2 / 500)%; background: gold; height: 10px;"></div>
+                        </div>
+                        break;
+                    }
+                        
+                    case 1:
+                    {
+                        <div class="skill">
+                            <div class="skill_level" style="width: @(100 * total[i].Item2 / 500)%; background: silver; height: 10px;"></div>
+                        </div>
+                        break;
+                    }  
+                        
+                    case 2:
+                    {
+                        <div class="skill">
+                            <div class="skill_level" style="width: @(100 * total[i].Item2 / 500)%; background: saddlebrown; height: 10px;"></div>
+                        </div>
+                        break;
+                    }  
+                    default:
+                    {
+                        <div class="skill">
+                            <div class="skill_level" style="width: @(100 * total[i].Item2 / 500)%; background: deepskyblue; height: 10px;"></div>
+                        </div>
+                        break;
+                    }  
+                }
+                
             </div>
         }
     </div>
@@ -63,42 +95,60 @@
 </div>
 
 @code {
-    private Piloto[] pilotos;
-    private List<Localizacao> localizacoes;
+    private Resultado resultado = new Resultado();
+    private List<Tuple<string, int>> total = new List<Tuple<string, int>>();
     private int provaPretendida = 1;
-    private int epocaPretendida = 2021;
+    private int epocaPretendida = 2019;
+    private int posicao = 0;
 
     private void ProxProva()
     {
-        provaPretendida++;
+        if (provaPretendida < 22)
+        {
+            provaPretendida++;
+            posicao = 0;
+        }
     }
 
     private void PrevProva()
     {
-        if (provaPretendida >= 1)
+        if (provaPretendida > 1)
         {
             provaPretendida--;
+            posicao = 0;
         }
     }
 
     private void ProxEpoca()
     {
-        epocaPretendida++;
-    }
-
-    protected void PrevEpoca()
-    {
-        if (epocaPretendida >= 1)
+        if (epocaPretendida < 2021)
         {
-            epocaPretendida--;
+            epocaPretendida++;
+            provaPretendida = 1;
+            posicao = 0;
         }
     }
 
-    protected override async Task OnInitializedAsync()
+    private void PrevEpoca()
     {
-        
-        Localizacao l = new Localizacao();
-        localizacoes = l.GetLocalizacoes();
-        pilotos = await PilotoService.GetClassificacao();
+        if (epocaPretendida > 1999)
+        {
+            epocaPretendida--;
+            provaPretendida = 1;
+            posicao = 0;
+        }
+    }
+
+     protected override async Task OnAfterRenderAsync(bool firstRender) {
+    
+        if (firstRender){
+            total = await resultado.ClassificacoesGeraisPiloto(epocaPretendida, provaPretendida);
+            StateHasChanged(); 
+            //Console.WriteLine("sada");
+        }
+        else{
+            total = await resultado.ClassificacoesGeraisPiloto(epocaPretendida, provaPretendida);
+            StateHasChanged();
+        }
     }
 }
