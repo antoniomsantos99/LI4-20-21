@@ -262,7 +262,7 @@ namespace LightsOut
         void loadCountries()
         {   
             /* Cria uma lista de tuplos com todos os países tal como a sua respetiva nacionalidade*/
-            List<Tuple<String, String>> countries = LoadJson("C:\\Users\\Carlos Preto\\Desktop\\3ºAno MIEI\\2º Semestre\\LI4\\LightsOut\\Backend\\DataManager\\Countries.json")
+            List<Tuple<String, String>> countries = LoadJson("../../../Countries.json")
                 .Select(x => new Tuple<String, String>(x["en_short_name"], x["nationality"]))
                     .ToList();
 
@@ -310,16 +310,16 @@ namespace LightsOut
         {
             DataManager dm = new DataManager();
             
-            /*
+            
             dm.loadCountries();
             dm.loadEpocas(2000,2021);
             dm.loadCircuitos();
             dm.loadProvas();
             dm.loadPilotos();
-            dm.loadEquipas();*/
-            //dm.loadPilotosEquipas();
-            //dm.loadResults();
-            //dm.loadQualificacao();
+            dm.loadEquipas();
+            dm.loadPilotosEquipas();
+            dm.loadResults();
+            dm.loadQualificacao();
         }
     }
 }

@@ -32,8 +32,8 @@ function loadMapScenario(lista) {
             }
         }
 
-        //var url = "http://localhost:5000/mapaProvas/" + JSON.parse(item).id;
-        var url = "http://localhost:5000/resultados";
+        var url = "http://localhost:5000/resultados/" + JSON.parse(item).id;
+        //var url = "http://localhost:5000/resultados/";
         pin.redirectUrl = url;
         /*
          infobox = new Microsoft.Maps.Infobox(local, {

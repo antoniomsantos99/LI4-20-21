@@ -305,3 +305,16 @@ C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\bi
 C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\obj\Debug\net5.0\RazorDeclaration\Pages\ResultadoEQualificacao.razor.g.cs
 C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\obj\Debug\net5.0\Razor\Pages\ResultadoEQualificacao.razor.g.cs
 C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\obj\Debug\net5.0\scopedcss\Pages\ResultadoEQualificacao.razor.rz.scp.css
+D:\DEV\GitHub projects\LI4-20-21\LightsOut\Frontend\bin\Debug\net5.0\Dapper.dll
+D:\DEV\GitHub projects\LI4-20-21\LightsOut\Frontend\bin\Debug\net5.0\Newtonsoft.Json.dll
+D:\DEV\GitHub projects\LI4-20-21\LightsOut\Frontend\bin\Debug\net5.0\System.Data.SqlClient.dll
+D:\DEV\GitHub projects\LI4-20-21\LightsOut\Frontend\bin\Debug\net5.0\System.Net.WebSockets.WebSocketProtocol.dll
+D:\DEV\GitHub projects\LI4-20-21\LightsOut\Frontend\bin\Debug\net5.0\runtimes\win-arm64\native\sni.dll
+D:\DEV\GitHub projects\LI4-20-21\LightsOut\Frontend\bin\Debug\net5.0\runtimes\win-x64\native\sni.dll
+D:\DEV\GitHub projects\LI4-20-21\LightsOut\Frontend\bin\Debug\net5.0\runtimes\win-x86\native\sni.dll
+D:\DEV\GitHub projects\LI4-20-21\LightsOut\Frontend\bin\Debug\net5.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\DEV\GitHub projects\LI4-20-21\LightsOut\Frontend\bin\Debug\net5.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\DEV\GitHub projects\LI4-20-21\LightsOut\Frontend\obj\Debug\net5.0\RazorDeclaration\Pages\ResultadoEQualificacao.razor.g.cs
+D:\DEV\GitHub projects\LI4-20-21\LightsOut\Frontend\obj\Debug\net5.0\Razor\Pages\ResultadoEQualificacao.razor.g.cs
+D:\DEV\GitHub projects\LI4-20-21\LightsOut\Frontend\obj\Debug\net5.0\scopedcss\Pages\ResultadoEQualificacao.razor.rz.scp.css
+D:\DEV\GitHub projects\LI4-20-21\LightsOut\Frontend\bin\Debug\net5.0\Append.Blazor.Notifications.dll

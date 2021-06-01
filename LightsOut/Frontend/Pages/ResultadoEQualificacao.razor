@@ -1,10 +1,12 @@
-@page "/resultados"
+@page "/resultados/"
+@page "/resultados/{racename}"
 
 @using LightsOut.Data
+@using System.Reflection.Metadata
 
 
 <div class="resultadoProva">
-    <h1>Australian Gran Prix 2020</h1>
+    <h1>@racename</h1>
     @if (resultadoProva == null)
     {
         <p><em>Loading...</em></p>
@@ -475,8 +477,21 @@
     }
 </div>
 
+@functions{
+    private string _racename;
+[Parameter]
+ public string racename
+  {
+      get { 
+          return _racename==null ? string.Empty : _racename;
+      }
+      set { _racename = value;} 
+  }
+}
+
+
 @code {
-    
+
     private List<List<string>> resultados = new List<List<string>>();
     
     private Resultado resultadoProva = new Resultado();
@@ -488,14 +503,14 @@
 
         if (firstRender)
         {
-            resultados = await resultadoProva.ResultadosProva("70thAnniversaryGrandPrix2020");
+            resultados = await resultadoProva.ResultadosProva(racename);
             //equipas = await equipa.GetEquipasEpoca(epocaPretendida);
             StateHasChanged();
     //Console.WriteLine("sada");
         }
         else
         {
-            resultados = await resultadoProva.ResultadosProva("70thAnniversaryGrandPrix2020");
+            resultados = await resultadoProva.ResultadosProva(racename);
             //equipas = await equipa.GetEquipasEpoca(epocaPretendida);
             StateHasChanged();
         }

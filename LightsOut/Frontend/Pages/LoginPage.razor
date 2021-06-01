@@ -1,6 +1,8 @@
 @page "/login"
 @using LightsOut.Data
 @inject NavigationManager NavigationManager
+@using Append.Blazor.Notifications
+@inject INotificationService NotificationService
 
 <div class="loginBox">
         <img src="1.png" class="avatar">
@@ -28,13 +30,20 @@
         Console.WriteLine(password);
     }
 
-    public void addUser()
+    public async void addUser()
     {
+        await NotificationService.RequestPermissionAsync();
         if (u.addUserBaseDados(username, password))
         {
             Console.WriteLine("User Added");
             NavigationManager.NavigateTo("http://localhost:5000");
         }
-        else Console.WriteLine("Error");
+        else
+        {
+            Console.WriteLine("Error");
+            await NotificationService.CreateAsync("Login Error", "Username já existe!", "images/github.png");
+        }
+
+
     }
 }
