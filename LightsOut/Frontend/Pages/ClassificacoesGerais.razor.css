@@ -1,7 +1,7 @@
 .classificacoes{
     width: 100%;
     height: 100vh;
-    /*overflow: scroll;*/
+    overflow: hidden;
 }
 
 .classificacoes h1{
@@ -70,6 +70,9 @@ button:hover {
     background: rgb(31, 31, 31);
     border: 1px solid rgb(255, 255, 255);
     border-radius: 10px;/*quão curva é a borda*/
+    overflow: auto;
+    height: calc(100vh - 90px);/*faz com que barra de scroll apareça*/
+    max-height: 60vh;/*tamanho da tabela*/
 }
 
 .rightTable{
@@ -81,6 +84,9 @@ button:hover {
     background: rgb(31, 31, 31);
     border: 1px solid rgb(255, 255, 255);
     border-radius: 10px;/*quão curva é a borda*/
+    overflow: auto;
+    height: calc(100vh - 90px);/*faz com que barra de scroll apareça*/
+    max-height: 60vh;/*tamanho da tabela*/
 }
 
 .leftTable h1{/*palavra Classificação Geral Pilotos*/
@@ -89,7 +95,7 @@ button:hover {
     color: #fff;
     text-align: center;
     font-weight: bold;
-    font-size: 1rem;
+    font-size: 1.8rem;
 }
 
 .rightTable h1{
@@ -98,7 +104,7 @@ button:hover {
     color: #fff;
     text-align: center;
     font-weight: bold;/*palavra Classificação Geral Equipas*/
-    font-size: 1.5rem;
+    font-size: 1.8rem;
 }
 
 .skillBox{
@@ -111,34 +117,17 @@ button:hover {
     color: white;
     margin: 0 0 10px;
     padding: 0;
-    font-weight: bold;
     letter-spacing: 1px;
-    font-size: 0.5rem;
+    font-size: 1rem;
 }
 
-.skillBox p:nth-child(2){
-    float: right;/*coloca pontos à frente do piloto*/
-    position: relative;
-    top: -25px;
-}
+
 
 .skill{
     background: #262626;/*cor de fundo das barras não ocupadas*/
     padding: 4px;
     box-sizing: border-box;
-    border: 1px solid rgb(255, 255, 255);
+    border: 2px solid rgb(255, 255, 255);
     border-radius: 2px;
 }
 
-/*
-.skill_level:first-child{
-    background: rgb(56, 65, 123);
-    width: 100%;
-    height: 10px;
-}
-
-.skill_level{
-    background: rgb(0, 232, 240);
-    width: 100%;
-    height: 10px;
-}*/

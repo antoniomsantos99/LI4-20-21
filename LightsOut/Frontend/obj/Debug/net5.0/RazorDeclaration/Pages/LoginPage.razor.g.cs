@@ -82,6 +82,20 @@ using LightsOut.Shared;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 11 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\_Imports.razor"
+using Microsoft.AspNetCore.Identity;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 2 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\Pages\LoginPage.razor"
+using LightsOut.Data;
+
+#line default
+#line hidden
+#nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/login")]
     public partial class LoginPage : Microsoft.AspNetCore.Components.ComponentBase
     {
@@ -90,6 +104,35 @@ using LightsOut.Shared;
         {
         }
         #pragma warning restore 1998
+#nullable restore
+#line 18 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\Pages\LoginPage.razor"
+      
+    private string username = "";
+    private string password = "";
+    private Utilizador u = new Utilizador();
+    
+    public void cenas(){
+        Console.WriteLine(username);
+    }
+    
+    public void cenasPass(){
+        Console.WriteLine(password);
+    }
+
+    public void addUser()
+    {
+        if (u.addUserBaseDados(username, password))
+        {
+            Console.WriteLine("User Added");
+            NavigationManager.NavigateTo("http://localhost:5000");
+        }
+        else Console.WriteLine("Error");
+    }
+
+#line default
+#line hidden
+#nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager NavigationManager { get; set; }
     }
 }
 #pragma warning restore 1591

@@ -1,77 +1,54 @@
 var map;
-function loadMapScenario(lista, dia) {
+function loadMapScenario(lista) {
     //console.log(lista)
-    
+
     //console.log(JSON.parse(lista[0]).idEpoca);
-    
+
     var mapOptions = {
         zoom: 5
     };
 
     mapa = new Microsoft.Maps.Map(document.getElementById('map'), mapOptions);
-    var d = new Date(dia);
-    
-    lista.forEach(function (item, index){
+
+    lista.forEach(function (item, index) {
 
         //console.log(JSON.parse(item));
         //console.log(JSON.parse(item).data.split("T")[0]);
+        var local = new Microsoft.Maps.Location(JSON.parse(item).localizacao.latitude, JSON.parse(item).localizacao.longitude);
         
-        if (Date.now() < d){            
-            
-            var local = new Microsoft.Maps.Location(JSON.parse(item).localizacao.latitude, JSON.parse(item).localizacao.longitude);
-            
-            
-            
-            if (Date.parse(JSON.parse(item).data.split("T")[0]) > Date.parse("2019-04-25")) {
-                var pin = new Microsoft.Maps.Pushpin(local, {color: 'red'});
-            } else{
-                var pin = new Microsoft.Maps.Pushpin(local, {color: 'green'});
+        diaAtual = new Date(Date.now()).toISOString().split('T')[0]
+        diaProva = new Date(JSON.parse(item).data).toISOString().split('T')[0]
+
+        if (diaProva > diaAtual) {
+            var pin = new Microsoft.Maps.Pushpin(local, { color: 'black' });
+        } else {
+            if (diaProva == diaAtual){
+                var pin = new Microsoft.Maps.Pushpin(local, { color: 'red' });
             }
-            
-            var url = "http://localhost:5000/resultado/" + JSON.parse(item).id;
-            
-            pin.redirectUrl = url;
-            /*
-             infobox = new Microsoft.Maps.Infobox(local, {
-             title: 'teste',
-             description: 'possivel resultado',
-             visible: 'false'});
-            */
-
-            Microsoft.Maps.Events.addHandler(pin, 'click', function (e) {
-                window.location = e.target.redirectUrl;
-            });
-
-            mapa.entities.push(pin);
-        }
-        else{
-            var local = new Microsoft.Maps.Location(JSON.parse(item).localizacao.latitude, JSON.parse(item).localizacao.longitude);
-
-            if (Date.parse(JSON.parse(item).data.split("T")[0]) > Date.parse("2019-04-25")) {
-                var pin = new Microsoft.Maps.Pushpin(local, {color: 'red'});
-            } else{
-                var pin = new Microsoft.Maps.Pushpin(local, {color: 'green'});
+            else{
+                console.log(diaProva);
+                console.log(diaAtual);
+                var pin = new Microsoft.Maps.Pushpin(local, { color: 'green' });
             }
-
-
-            var url = "http://localhost:5000/resultado/" + JSON.parse(item).id;
-
-            pin.redirectUrl = url;
-            /*
-             infobox = new Microsoft.Maps.Infobox(local, {
-             title: 'teste',
-             description: 'possivel resultado',
-             visible: 'false'});
-            */
-
-            Microsoft.Maps.Events.addHandler(pin, 'click', function (e) {
-                window.location = e.target.redirectUrl;
-            });
-
-            mapa.entities.push(pin);
         }
+
+        //var url = "http://localhost:5000/mapaProvas/" + JSON.parse(item).id;
+        var url = "http://localhost:5000/resultados";
+        pin.redirectUrl = url;
+        /*
+         infobox = new Microsoft.Maps.Infobox(local, {
+         title: 'teste',
+         description: 'possivel resultado',
+         visible: 'false'});
+        */
+
+        Microsoft.Maps.Events.addHandler(pin, 'click', function (e) {
+            window.location = e.target.redirectUrl;
+        });
+
+        mapa.entities.push(pin);
     });
-    
+
     /*
     var local1 = new Microsoft.Maps.Location(24.6149, -42.1941);
     var local2 = new Microsoft.Maps.Location(13.6149, 10.1941);

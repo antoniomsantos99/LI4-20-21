@@ -1,13 +1,40 @@
 @page "/login"
+@using LightsOut.Data
+@inject NavigationManager NavigationManager
 
 <div class="loginBox">
         <img src="1.png" class="avatar">
             <form>
                 <p>Username</p>
-                <input type="text" name="" placeholder="Enter Username">
+                <input type="text" @bind="username" name="" placeholder="Enter Username">
                 <p>Password</p>
-                <input type="password" name="" placeholder="Enter Password">
-                <input type="submit" name="" value="Criar Conta">
+                <input type="password" @bind="password" name="" placeholder="Enter Password">
+                <input asp-for="" type="submit" name="" value="Criar Conta">
+                <button type="button" @onclick="addUser">Login</button>
                 <input type="submit" name="" value="Login">
             </form>
 </div>
+
+@code{
+    private string username = "";
+    private string password = "";
+    private Utilizador u = new Utilizador();
+    
+    public void cenas(){
+        Console.WriteLine(username);
+    }
+    
+    public void cenasPass(){
+        Console.WriteLine(password);
+    }
+
+    public void addUser()
+    {
+        if (u.addUserBaseDados(username, password))
+        {
+            Console.WriteLine("User Added");
+            NavigationManager.NavigateTo("http://localhost:5000");
+        }
+        else Console.WriteLine("Error");
+    }
+}

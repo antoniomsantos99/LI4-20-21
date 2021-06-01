@@ -6,13 +6,28 @@
 @using Newtonsoft.Json
 
 <div class="contentor">
+    
     <div id='map' style="height: 100vh; width: 100%;"></div>
     <div class="filtros">
         <div class="row">
             <div class="row">
-                <button type="button" @onclick="PrevDia">&#8249</button>
-                <p>@(dia.ToString("dd/MM/yyyy"))</p>
-                <button type="button" @onclick="ProxDia">&#8250</button>
+                <button type="button" @onclick="PrevDiaInicial">&#8249</button>
+                <p>Data Inicial: @(diaInicial.ToString("dd/MM/yyyy"))</p>
+                <button type="button" @onclick="ProxDiaInicial">&#8250</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="row">
+                <button type="button" @onclick="PrevDiaFinal">&#8249</button>
+                <p>Data Final: @(diaFinal.ToString("dd/MM/yyyy"))</p>
+                <button type="button" @onclick="ProxDiaFinal">&#8250</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="row">
+                <button type="button" @onclick="DecrementRange">&#8249</button>
+                <p>Range: @range</p>
+                <button type="button" @onclick="IncrementRange">&#8250</button>
             </div>
         </div>
     </div>
@@ -20,26 +35,64 @@
 
 
 @code {
-    private DateTime dia = DateTime.Parse("2019-03-14");
+    //private DateTime dia = DateTime.Parse("2019-03-14");
+    private DateTime diaInicial = DateTime.Now;
+    private DateTime diaFinal = DateTime.Now;
+    private int range = 1;
     private Prova prova = new Prova();
     private List<Prova> provas = new List<Prova>();
     private Localizacao local = new Localizacao();
     private List<Localizacao> localizacoes = new List<Localizacao>();
     private List<List<float>> locais = new List<List<float>>();
+    //private string tempoRefrescamento = "2";
 
-    private void ProxDia(){
+    
+    private void IncrementRange(){
+        int i = range+1;
+        range = i;
+    }
 
-        DateTime d = dia.AddDays(1);
-        dia = d;
+    private void DecrementRange(){
+        if (range > 1){
+            int i = range-1;
+            range = i;
+        }
+    }
+
+    private void ProxDiaInicial(){
+        DateTime d = diaInicial.AddDays(range);
+        if (d <= diaFinal){
+            diaInicial = d;
+            base.StateHasChanged();
+        }else{
+            diaInicial = diaFinal;
+            base.StateHasChanged();
+        }
+    }
+
+    private void ProxDiaFinal(){
+        DateTime d = diaFinal.AddDays(range);
+        diaFinal = d;
         base.StateHasChanged();
     }
 
-    protected void PrevDia(){
 
-        DateTime d = dia.AddDays(-1);
-        dia = d;
+    protected void PrevDiaInicial(){
+        DateTime d = diaInicial.AddDays(-range);
+        diaInicial = d;
         base.StateHasChanged();
-        Console.WriteLine(dia);
+    }
+
+    protected void PrevDiaFinal(){
+        DateTime d = diaFinal.AddDays(-range);
+        if (d >= diaInicial){
+            diaFinal = d;
+            base.StateHasChanged();
+        }
+        else{
+            diaFinal = diaInicial;
+            base.StateHasChanged();
+        }
     }
 
     protected List<List<float>> getCoord(List<Prova> provas){
@@ -69,14 +122,11 @@
 
         if (firstRender){
             
-            string rondaText = dia.ToString("MM");
+            /*
+            string rondaText = diaFinal.ToString("MM");
             int ronda = Int32.Parse(rondaText);
             provas = prova.ppppp(2019, ronda);
             
-            /*
-            localizacoes = prova.GetProvasIntervalo(2020, ronda);
-            locais = getCoord(localizacoes);*/
-            //await JSRuntime.InvokeVoidAsync("initialMap", null);
             
             List<string> res = new List<string>();
             foreach (var p in provas)
@@ -84,26 +134,44 @@
                 res.Add(JsonConvert.SerializeObject(p));
             }
             
-            await JSRuntime.InvokeVoidAsync("loadMapScenario", res,dia);
+            await JSRuntime.InvokeVoidAsync("loadMapScenario", res,diaFinal);
             //StateHasChanged();
+            */
+
+            provas = prova.localizacaoProvasIntervalo(diaInicial.ToString("yyyy-MM-dd"), diaFinal.ToString("yyyy-MM-dd"));
+            List<string> res = new List<string>();
+            
+            foreach(var p in provas){
+                res.Add(JsonConvert.SerializeObject(p));
+            }
+
+            await JSRuntime.InvokeVoidAsync("loadMapScenario", res);
+
         }
         else{
-            string rondaText = dia.ToString("MM");
+            /*
+            string rondaText = diaFinal.ToString("MM");
             int ronda = Int32.Parse(rondaText);
             provas = prova.ppppp(2019, ronda);
-            
-            /*
-            localizacoes = prova.GetProvasIntervalo(2020, ronda);
-            locais = getCoord(localizacoes);*/
-            //await JSRuntime.InvokeVoidAsync("initialMap", null);
+           
             List<string> res = new List<string>();
             foreach (var p in provas)
             {
                 res.Add(JsonConvert.SerializeObject(p));
             }
             
-            await JSRuntime.InvokeVoidAsync("loadMapScenario", res,dia);
+            await JSRuntime.InvokeVoidAsync("loadMapScenario", res,diaFinal);
             //StateHasChanged();
+            */
+            provas = prova.localizacaoProvasIntervalo(diaInicial.ToString("yyyy-MM-dd"), diaFinal.ToString("yyyy-MM-dd"));
+            List<string> res = new List<string>();
+            
+            foreach(var p in provas){
+                res.Add(JsonConvert.SerializeObject(p));
+            }
+
+            await JSRuntime.InvokeVoidAsync("loadMapScenario", res);
+
         }
     }
 }

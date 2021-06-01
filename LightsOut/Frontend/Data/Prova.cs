@@ -59,8 +59,6 @@ namespace LightsOut.Data
             }
         }
 
-
-
         public List<Prova> ppppp(int ano, int ronda)
         {
 
@@ -91,6 +89,38 @@ namespace LightsOut.Data
         }
 
 
+
+        public List<Prova> localizacaoProvasIntervalo(string dataInicial, string dataFinal)
+        {
+
+            List<Prova> result = new List<Prova>();
+            using (var connection = new SqlConnection(conString))
+            {
+                connection.Open();
+
+                string procuraProvas = String.Format("SELECT * from [LightsOut].[dbo].[Prova] P where P.data >= '{0}' and P.data <= '{1}' order by P.data;", dataInicial, dataFinal);
+                var resultProvas = connection.Query(procuraProvas);
+
+                foreach (var prova in resultProvas)
+                {
+                    string procuraLocalizacao =
+                        String.Format(
+                            "SELECT * from [LightsOut].[dbo].Localizacao where id = \'{0}\';", prova.idLocalizacao);
+
+                    var resultLocalizacoes = connection.Query<Localizacao>(procuraLocalizacao).First();
+
+                    DateTime d = prova.data + prova.horaProva;
+                    //Console.WriteLine(d);
+                    Prova p = new Prova(prova.id, prova.idEpoca, prova.ronda, prova.nomeProva, d, resultLocalizacoes);
+                    result.Add(p);
+                }
+
+                return result;
+            }
+        }
+
+
+
         public List<Localizacao> GetProvas(){
 
             using (var connection = new SqlConnection(conString))
@@ -101,6 +131,7 @@ namespace LightsOut.Data
                 return connection.Query<Localizacao>("SELECT L.* from [LightsOut].[dbo].[Prova] P JOIN Localizacao L on P.idLocalizacao = L.id where P.idEpoca = 2019;").ToList();
             }
         }
+
 
         public List<Localizacao> GetProvasIntervalo(int ano, int ronda){
 

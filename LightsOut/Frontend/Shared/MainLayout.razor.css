@@ -5,9 +5,9 @@
   right: 0;/*
   top: 10rem;*/
   bottom: 0;
-  min-width: 100%; 
+  min-width: 100%;
   min-height: 100vh;
-  overflow: hidden;/*esconder barra de scroll*/
+  overflow: hidden;/*esconder barra de scroll**/
  }
 
 .container{

@@ -83,6 +83,13 @@ using LightsOut.Shared;
 #line hidden
 #nullable disable
 #nullable restore
+#line 11 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\_Imports.razor"
+using Microsoft.AspNetCore.Identity;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
 #line 3 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\Pages\EquipasEPilotos.razor"
 using LightsOut.Data;
 
@@ -98,9 +105,11 @@ using LightsOut.Data;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 51 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\Pages\EquipasEPilotos.razor"
+#line 275 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\Pages\EquipasEPilotos.razor"
        
-    private Equipa[] equipas;
+    //private Equipa[] equipas;
+    private List<Equipa> equipas = new List<Equipa>();
+    private Equipa equipa = new Equipa();
     private int epocaPretendida = 2021;
 
     private void ProxEpoca()
@@ -116,15 +125,25 @@ using LightsOut.Data;
         }
     }
 
-    protected override async Task OnInitializedAsync()
+    protected override async Task OnAfterRenderAsync(bool firstRender)
     {
-        equipas = await EquipaService.GetEquipas();
+
+        if (firstRender)
+        {
+            equipas = await equipa.GetEquipasEpoca(epocaPretendida);
+            StateHasChanged();
+    //Console.WriteLine("sada");
+        }
+        else
+        {
+            equipas = await equipa.GetEquipasEpoca(epocaPretendida);
+            StateHasChanged();
+        }
     }
 
 #line default
 #line hidden
 #nullable disable
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private EquipaService EquipaService { get; set; }
     }
 }
 #pragma warning restore 1591

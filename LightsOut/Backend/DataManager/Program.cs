@@ -115,8 +115,7 @@ namespace LightsOut
                 }
                 
             }
-        }
-        
+        }       
 
         void loadProvas()
         {
@@ -142,6 +141,35 @@ namespace LightsOut
                             id, prova["season"], prova["round"] ,prova["raceName"],prova["date"], prova["time"], prova["Circuit"]["circuitId"]);
                         var res = connection.Query(sql);
                         //Console.WriteLine(sql);
+                    }
+                }
+                
+            }
+        }
+
+
+        void loadPilotosEquipas(){
+
+            using (var connection = new SqlConnection(conString))
+            {
+                connection.Open();
+                
+                /*Vê as epocas presentes na base de dados*/
+                var result = connection.Query<int>("select ano from [LightsOut].[dbo].Epoca").ToList();
+
+                foreach (var epoca in result)
+                {
+                    JObject info = getJsonFromURL(String.Format("http://ergast.com/api/f1/{0}/1/results.json",epoca));
+                    foreach (var resultado in info["MRData"]["RaceTable"]["Races"][0]["Results"].ToList())
+                    {
+                        var sql = String.Format(
+                            "If Not Exists(select * from [LightsOut].[dbo].PilotoEquipa where idPiloto=\'{0}\' and idEquipa=\'{1}\' and idEpoca = {2}) Begin insert into [LightsOut].[dbo].PilotoEquipa values (\'{0}\',\'{1}\',{2}) End",
+                            resultado["Driver"]["driverId"], 
+                            resultado["Constructor"]["constructorId"],
+                            epoca);
+                        
+                        //Console.WriteLine(sql);
+                        var res = connection.Query(sql);
                     }
                 }
                 
@@ -282,14 +310,16 @@ namespace LightsOut
         {
             DataManager dm = new DataManager();
             
+            /*
             dm.loadCountries();
             dm.loadEpocas(2000,2021);
             dm.loadCircuitos();
             dm.loadProvas();
             dm.loadPilotos();
-            dm.loadEquipas();
-            dm.loadResults();
-            dm.loadQualificacao();
+            dm.loadEquipas();*/
+            //dm.loadPilotosEquipas();
+            //dm.loadResults();
+            //dm.loadQualificacao();
         }
     }
 }

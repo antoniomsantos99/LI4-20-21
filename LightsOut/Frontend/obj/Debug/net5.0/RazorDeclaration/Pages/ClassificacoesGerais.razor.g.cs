@@ -83,6 +83,13 @@ using LightsOut.Shared;
 #line hidden
 #nullable disable
 #nullable restore
+#line 11 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\_Imports.razor"
+using Microsoft.AspNetCore.Identity;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
 #line 3 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\Pages\ClassificacoesGerais.razor"
 using LightsOut.Data;
 
@@ -98,20 +105,19 @@ using LightsOut.Data;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 97 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\Pages\ClassificacoesGerais.razor"
+#line 745 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\Pages\ClassificacoesGerais.razor"
        
     private Resultado resultado = new Resultado();
     private List<Tuple<string, int>> total = new List<Tuple<string, int>>();
+    private List<Tuple<string, int>> totalEquipas = new List<Tuple<string, int>>();
     private int provaPretendida = 1;
     private int epocaPretendida = 2019;
-    private int posicao = 0;
 
     private void ProxProva()
     {
         if (provaPretendida < 22)
         {
             provaPretendida++;
-            posicao = 0;
         }
     }
 
@@ -120,7 +126,6 @@ using LightsOut.Data;
         if (provaPretendida > 1)
         {
             provaPretendida--;
-            posicao = 0;
         }
     }
 
@@ -130,7 +135,6 @@ using LightsOut.Data;
         {
             epocaPretendida++;
             provaPretendida = 1;
-            posicao = 0;
         }
     }
 
@@ -140,19 +144,23 @@ using LightsOut.Data;
         {
             epocaPretendida--;
             provaPretendida = 1;
-            posicao = 0;
         }
     }
 
-     protected override async Task OnAfterRenderAsync(bool firstRender) {
-    
-        if (firstRender){
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+
+        if (firstRender)
+        {
             total = await resultado.ClassificacoesGeraisPiloto(epocaPretendida, provaPretendida);
-            StateHasChanged(); 
+            totalEquipas = await resultado.ClassificacoesGeraisEquipas(epocaPretendida, provaPretendida);
+            StateHasChanged();
             //Console.WriteLine("sada");
         }
-        else{
+        else
+        {
             total = await resultado.ClassificacoesGeraisPiloto(epocaPretendida, provaPretendida);
+            totalEquipas = await resultado.ClassificacoesGeraisEquipas(epocaPretendida, provaPretendida);
             StateHasChanged();
         }
     }
