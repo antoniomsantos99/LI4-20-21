@@ -8,15 +8,16 @@
     height: auto;
     background-size: cover;/*amplia imagem*/
     overflow: hidden;/*esconder barra de scroll*/
+    display: flex;
 }
 
-.section h1[b-lrzzdctped] { /*era a dizer bem vindo lighstOut */
+.texto h1[b-lrzzdctped] { /*era a dizer bem vindo lighstOut */
     text-align: center;
     font-size: 3rem;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     padding: 20px;
     margin: 15px;
-    z-index: 1;
+    z-index: 10;
     color: white;
 }
 
@@ -25,6 +26,7 @@
     top: 0;
     left: 0;
     width: 100vw;
+    z-index: 5;
 }
 
 .color-overlay[b-lrzzdctped] {
@@ -34,6 +36,26 @@
     background-color: black;
     width: 100%;
     height: 100vh;
-    opacity: 0.6;
+    opacity: 0.7;
+}
+
+.overlay[b-lrzzdctped] {
+    position:absolute;
+    top:20%;
+    left:20%;
+    z-index:1;
+}
+
+.overlay h1[b-lrzzdctped]{
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    font-size: 5rem;
+}
+
+.overlay h2[b-lrzzdctped]{
+    color: white;
+    text-align: center;
+    font-size: 3rem;
 }
 

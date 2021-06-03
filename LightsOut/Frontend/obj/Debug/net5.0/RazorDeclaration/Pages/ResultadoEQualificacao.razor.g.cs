@@ -13,92 +13,99 @@ namespace LightsOut.Pages
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Components;
 #nullable restore
-#line 1 "D:\DEV\GitHub projects\LI4-20-21\LightsOut\Frontend\_Imports.razor"
+#line 1 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\_Imports.razor"
 using System.Net.Http;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "D:\DEV\GitHub projects\LI4-20-21\LightsOut\Frontend\_Imports.razor"
+#line 2 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\_Imports.razor"
 using Microsoft.AspNetCore.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "D:\DEV\GitHub projects\LI4-20-21\LightsOut\Frontend\_Imports.razor"
+#line 3 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\_Imports.razor"
 using Microsoft.AspNetCore.Components.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 4 "D:\DEV\GitHub projects\LI4-20-21\LightsOut\Frontend\_Imports.razor"
+#line 4 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\_Imports.razor"
 using Microsoft.AspNetCore.Components.Forms;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 5 "D:\DEV\GitHub projects\LI4-20-21\LightsOut\Frontend\_Imports.razor"
+#line 5 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\_Imports.razor"
 using Microsoft.AspNetCore.Components.Routing;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 6 "D:\DEV\GitHub projects\LI4-20-21\LightsOut\Frontend\_Imports.razor"
+#line 6 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\_Imports.razor"
 using Microsoft.AspNetCore.Components.Web;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 7 "D:\DEV\GitHub projects\LI4-20-21\LightsOut\Frontend\_Imports.razor"
+#line 7 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\_Imports.razor"
 using Microsoft.AspNetCore.Components.Web.Virtualization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 8 "D:\DEV\GitHub projects\LI4-20-21\LightsOut\Frontend\_Imports.razor"
+#line 8 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\_Imports.razor"
 using Microsoft.JSInterop;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 9 "D:\DEV\GitHub projects\LI4-20-21\LightsOut\Frontend\_Imports.razor"
+#line 9 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\_Imports.razor"
 using LightsOut;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 10 "D:\DEV\GitHub projects\LI4-20-21\LightsOut\Frontend\_Imports.razor"
+#line 10 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\_Imports.razor"
 using LightsOut.Shared;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 11 "D:\DEV\GitHub projects\LI4-20-21\LightsOut\Frontend\_Imports.razor"
+#line 11 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\_Imports.razor"
 using Microsoft.AspNetCore.Identity;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 4 "D:\DEV\GitHub projects\LI4-20-21\LightsOut\Frontend\Pages\ResultadoEQualificacao.razor"
+#line 4 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\Pages\ResultadoEQualificacao.razor"
 using LightsOut.Data;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 5 "D:\DEV\GitHub projects\LI4-20-21\LightsOut\Frontend\Pages\ResultadoEQualificacao.razor"
-using System.Reflection.Metadata;
+#line 5 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\Pages\ResultadoEQualificacao.razor"
+using System.Reflection;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 6 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\Pages\ResultadoEQualificacao.razor"
+using System.Text.RegularExpressions;
 
 #line default
 #line hidden
@@ -113,7 +120,7 @@ using System.Reflection.Metadata;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 480 "D:\DEV\GitHub projects\LI4-20-21\LightsOut\Frontend\Pages\ResultadoEQualificacao.razor"
+#line 494 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\Pages\ResultadoEQualificacao.razor"
            
     private string _racename;
 [Parameter]
@@ -129,21 +136,28 @@ using System.Reflection.Metadata;
 #line hidden
 #nullable disable
 #nullable restore
-#line 493 "D:\DEV\GitHub projects\LI4-20-21\LightsOut\Frontend\Pages\ResultadoEQualificacao.razor"
+#line 507 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\Pages\ResultadoEQualificacao.razor"
        
 
     private List<List<string>> resultados = new List<List<string>>();
     
     private Resultado resultadoProva = new Resultado();
 
-    private int epocaPretendida = 2020;
+    private int epocaPretendida;
+    
+        
+    protected override async Task OnAfterRenderAsync(bool firstRender){
+        
+        string[] split =  Regex.Split(racename, @"(?<!^)(?=x)");//separar por letras maíusculas
 
-    protected override async Task OnAfterRenderAsync(bool firstRender)
-    {
-
-        if (firstRender)
+        string newThing = Regex.Replace(split[1], "x", "");
+        epocaPretendida = Int32.Parse(newThing);
+        
+        //Console.WriteLine(epocaPretendida);
+    if (firstRender)
         {
             resultados = await resultadoProva.ResultadosProva(racename);
+            
             //equipas = await equipa.GetEquipasEpoca(epocaPretendida);
             StateHasChanged();
     //Console.WriteLine("sada");
@@ -151,6 +165,8 @@ using System.Reflection.Metadata;
         else
         {
             resultados = await resultadoProva.ResultadosProva(racename);
+            Console.WriteLine(epocaPretendida);
+
             //equipas = await equipa.GetEquipasEpoca(epocaPretendida);
             StateHasChanged();
         }

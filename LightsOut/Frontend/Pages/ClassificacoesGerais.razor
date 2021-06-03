@@ -100,6 +100,19 @@
                                 }
                                 break;
                             
+                            case "Yuki Tsunoda":
+
+                                @switch (epocaPretendida)
+                                {
+                                    case 2021:
+                                        <td><img src="/2021cars/2021alphatauri.png" alt="" border=3 height=60px width=200px></td>
+                                        break;
+                                    default:
+                                        <td>-</td>
+                                        break;
+                                }
+                                break;
+                            
                             case "Lando Norris":
 
                                 @switch (epocaPretendida)
@@ -747,7 +760,7 @@
     private List<Tuple<string, int>> total = new List<Tuple<string, int>>();
     private List<Tuple<string, int>> totalEquipas = new List<Tuple<string, int>>();
     private int provaPretendida = 1;
-    private int epocaPretendida = 2019;
+    private int epocaPretendida = 2021;
 
     private void ProxProva()
     {
@@ -791,13 +804,14 @@
             total = await resultado.ClassificacoesGeraisPiloto(epocaPretendida, provaPretendida);
             totalEquipas = await resultado.ClassificacoesGeraisEquipas(epocaPretendida, provaPretendida);
             StateHasChanged();
-            //Console.WriteLine("sada");
+
         }
         else
         {
             total = await resultado.ClassificacoesGeraisPiloto(epocaPretendida, provaPretendida);
             totalEquipas = await resultado.ClassificacoesGeraisEquipas(epocaPretendida, provaPretendida);
             StateHasChanged();
+
         }
     }
 }

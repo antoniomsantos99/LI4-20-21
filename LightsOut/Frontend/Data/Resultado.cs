@@ -261,9 +261,6 @@ namespace LightsOut.Data
             }
         }
 
-
-
-
         public List<Prova> ppppp(int ano, int ronda)
         {
 

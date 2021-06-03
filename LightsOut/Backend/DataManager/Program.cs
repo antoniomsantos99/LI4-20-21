@@ -7,6 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Runtime.CompilerServices;
+using System.Threading;
 using System.Xml;
 using System.Xml.Linq;
 using Newtonsoft.Json;
@@ -305,21 +306,44 @@ namespace LightsOut
             }
         }
 
+
+        public void Thread1()
+        {
+            DataManager dm = new DataManager();
+            
+            dm.loadProvas();
+            dm.loadQualificacao();
+            dm.loadResults();
+            
+            
+            Console.WriteLine("Meteu Dados");
+            Thread.Sleep(300000);//dormir 5 minutos
+
+        }
         
         static void Main(string[] args)
         {
             DataManager dm = new DataManager();
             
-            
-            dm.loadCountries();
-            dm.loadEpocas(2000,2021);
-            dm.loadCircuitos();
-            dm.loadProvas();
-            dm.loadPilotos();
-            dm.loadEquipas();
-            dm.loadPilotosEquipas();
-            dm.loadResults();
-            dm.loadQualificacao();
+            /*
+
+dm.loadCountries();
+dm.loadEpocas(2000,2021);
+dm.loadCircuitos();
+dm.loadProvas();
+dm.loadPilotos();
+dm.loadEquipas();
+dm.loadPilotosEquipas();
+dm.loadResults();
+dm.loadQualificacao();
+*/
+
+            while (true)
+            {
+                Thread t1 = new Thread(dm.Thread1);
+                t1.Start();
+                t1.Join();
+            }
         }
     }
 }

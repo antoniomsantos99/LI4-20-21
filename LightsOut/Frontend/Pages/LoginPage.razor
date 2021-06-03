@@ -3,47 +3,53 @@
 @inject NavigationManager NavigationManager
 @using Append.Blazor.Notifications
 @inject INotificationService NotificationService
+@inject AuthenticationStateProvider AuthenticationStateProvider
+@inject Blazored.SessionStorage.ISessionStorageService sessionStorage
+@inject PageHistoryState PageHistoryState
+
 
 <div class="loginBox">
-        <img src="1.png" class="avatar">
-            <form>
-                <p>Username</p>
-                <input type="text" @bind="username" name="" placeholder="Enter Username">
-                <p>Password</p>
-                <input type="password" @bind="password" name="" placeholder="Enter Password">
-                <input asp-for="" type="submit" name="" value="Criar Conta">
-                <button type="button" @onclick="addUser">Login</button>
-                <input type="submit" name="" value="Login">
-            </form>
+    <img src="1.png" class="avatar">
+        <EditForm Model="@user" OnValidSubmit="@addUser">
+            <p>Username</p>
+            <input type="text" @bind="user.username" name="" placeholder="Enter Username">
+            <p>Password</p>
+            <input type="password" @bind="user.password" name="" placeholder="Enter Password">
+            <input type="submit" name="" value="Entrar">
+        </EditForm>
 </div>
 
 @code{
-    private string username = "";
-    private string password = "";
-    private Utilizador u = new Utilizador();
     
-    public void cenas(){
-        Console.WriteLine(username);
-    }
-    
-    public void cenasPass(){
-        Console.WriteLine(password);
-    }
+    private Utilizador user;  
 
+    protected override Task OnInitializedAsync()
+    {
+        user = new Utilizador();
+        return base.OnInitializedAsync();
+    }
+    
+   
     public async void addUser()
     {
         await NotificationService.RequestPermissionAsync();
-        if (u.addUserBaseDados(username, password))
+        if (user.addUserBaseDados(user.username, user.password))
         {
-            Console.WriteLine("User Added");
-            NavigationManager.NavigateTo("http://localhost:5000");
+            ((CustomAuthenticationStateProvider)AuthenticationStateProvider).MarkUserAsAuthenticated(user.username);
+           
+            NavigationManager.NavigateTo(PageHistoryState.GetGoBackPage());
+            
+            await sessionStorage.SetItemAsync("username", user.username);
         }
         else
         {
-            Console.WriteLine("Error");
-            await NotificationService.CreateAsync("Login Error", "Username já existe!", "images/github.png");
+            ((CustomAuthenticationStateProvider)AuthenticationStateProvider).MarkUserAsAuthenticated(user.username);
+            
+            NavigationManager.NavigateTo(PageHistoryState.GetGoBackPage());
+
+            await sessionStorage.SetItemAsync("username", user.username);
         }
 
-
     }
+
 }

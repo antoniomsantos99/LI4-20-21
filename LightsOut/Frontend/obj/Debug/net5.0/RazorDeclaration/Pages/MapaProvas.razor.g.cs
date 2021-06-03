@@ -13,105 +13,119 @@ namespace LightsOut.Pages
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Components;
 #nullable restore
-#line 1 "D:\DEV\GitHub projects\LI4-20-21\LightsOut\Frontend\_Imports.razor"
+#line 1 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\_Imports.razor"
 using System.Net.Http;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "D:\DEV\GitHub projects\LI4-20-21\LightsOut\Frontend\_Imports.razor"
+#line 2 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\_Imports.razor"
 using Microsoft.AspNetCore.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "D:\DEV\GitHub projects\LI4-20-21\LightsOut\Frontend\_Imports.razor"
+#line 3 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\_Imports.razor"
 using Microsoft.AspNetCore.Components.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 4 "D:\DEV\GitHub projects\LI4-20-21\LightsOut\Frontend\_Imports.razor"
+#line 4 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\_Imports.razor"
 using Microsoft.AspNetCore.Components.Forms;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 5 "D:\DEV\GitHub projects\LI4-20-21\LightsOut\Frontend\_Imports.razor"
+#line 5 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\_Imports.razor"
 using Microsoft.AspNetCore.Components.Routing;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 6 "D:\DEV\GitHub projects\LI4-20-21\LightsOut\Frontend\_Imports.razor"
+#line 6 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\_Imports.razor"
 using Microsoft.AspNetCore.Components.Web;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 7 "D:\DEV\GitHub projects\LI4-20-21\LightsOut\Frontend\_Imports.razor"
+#line 7 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\_Imports.razor"
 using Microsoft.AspNetCore.Components.Web.Virtualization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 8 "D:\DEV\GitHub projects\LI4-20-21\LightsOut\Frontend\_Imports.razor"
+#line 8 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\_Imports.razor"
 using Microsoft.JSInterop;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 9 "D:\DEV\GitHub projects\LI4-20-21\LightsOut\Frontend\_Imports.razor"
+#line 9 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\_Imports.razor"
 using LightsOut;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 10 "D:\DEV\GitHub projects\LI4-20-21\LightsOut\Frontend\_Imports.razor"
+#line 10 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\_Imports.razor"
 using LightsOut.Shared;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 11 "D:\DEV\GitHub projects\LI4-20-21\LightsOut\Frontend\_Imports.razor"
+#line 11 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\_Imports.razor"
 using Microsoft.AspNetCore.Identity;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "D:\DEV\GitHub projects\LI4-20-21\LightsOut\Frontend\Pages\MapaProvas.razor"
+#line 3 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\Pages\MapaProvas.razor"
 using LightsOut.Data;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 4 "D:\DEV\GitHub projects\LI4-20-21\LightsOut\Frontend\Pages\MapaProvas.razor"
+#line 4 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\Pages\MapaProvas.razor"
 using System.Net.Http.Json;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 5 "D:\DEV\GitHub projects\LI4-20-21\LightsOut\Frontend\Pages\MapaProvas.razor"
+#line 5 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\Pages\MapaProvas.razor"
 using System.Text.Json.Serialization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 6 "D:\DEV\GitHub projects\LI4-20-21\LightsOut\Frontend\Pages\MapaProvas.razor"
+#line 6 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\Pages\MapaProvas.razor"
+using System.Threading;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 7 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\Pages\MapaProvas.razor"
+using Microsoft.Extensions.WebEncoders.Testing;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 8 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\Pages\MapaProvas.razor"
 using Newtonsoft.Json;
 
 #line default
@@ -126,7 +140,7 @@ using Newtonsoft.Json;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 37 "D:\DEV\GitHub projects\LI4-20-21\LightsOut\Frontend\Pages\MapaProvas.razor"
+#line 40 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\Pages\MapaProvas.razor"
        
     //private DateTime dia = DateTime.Parse("2019-03-14");
     private DateTime diaInicial = DateTime.Now;
@@ -137,7 +151,7 @@ using Newtonsoft.Json;
     private Localizacao local = new Localizacao();
     private List<Localizacao> localizacoes = new List<Localizacao>();
     private List<List<float>> locais = new List<List<float>>();
-    //private string tempoRefrescamento = "2";
+    private String time;
 
     
     private void IncrementRange(){
@@ -210,7 +224,18 @@ using Newtonsoft.Json;
         
         return result;
     }
-    
+    /*
+    private async void Teste()
+    {
+        provas = prova.localizacaoProvasIntervalo(diaInicial.ToString("yyyy-MM-dd"), diaFinal.ToString("yyyy-MM-dd"));
+        List<string> res = new List<string>();
+            
+        foreach(var p in provas){
+            res.Add(JsonConvert.SerializeObject(p));
+        }
+
+        await JSRuntime.InvokeVoidAsync("loadMapScenario", res);
+    }*/
     protected override async Task OnAfterRenderAsync(bool firstRender) {
 
         if (firstRender){
@@ -239,7 +264,13 @@ using Newtonsoft.Json;
             }
 
             await JSRuntime.InvokeVoidAsync("loadMapScenario", res);
-
+            TimerService.UpdateEvent += async date =>
+            {
+                await InvokeAsync(() =>
+                {
+                    StateHasChanged();
+                });
+            };
         }
         else{
             /*
@@ -264,13 +295,25 @@ using Newtonsoft.Json;
             }
 
             await JSRuntime.InvokeVoidAsync("loadMapScenario", res);
+            
+            TimerService.UpdateEvent += async date =>
+            {
+                await InvokeAsync(() =>
+                {
+                    time += date;
+                    StateHasChanged();
+                });
+            };
 
         }
+        
+        PageHistoryState.AddPageToHistory("/mapaProvas");
     }
 
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private PageHistoryState PageHistoryState { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private IJSRuntime JSRuntime { get; set; }
     }
 }

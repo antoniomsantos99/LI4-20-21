@@ -147,7 +147,7 @@ button:hover[b-52b1hvjf8i] {
     margin-top: 2rem;
     margin-left: 10%;
     width: 80vw;
-    height: 70vh;
+    height: 60vh;
     overflow-y:scroll;
     overflow-x: hidden;
     border: 4px solid rgb(255, 255, 255);
@@ -267,15 +267,16 @@ button:hover[b-ihegtjdigl] {
     height: auto;
     background-size: cover;/*amplia imagem*/
     overflow: hidden;/*esconder barra de scroll*/
+    display: flex;
 }
 
-.section h1[b-lrzzdctped] { /*era a dizer bem vindo lighstOut */
+.texto h1[b-lrzzdctped] { /*era a dizer bem vindo lighstOut */
     text-align: center;
     font-size: 3rem;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     padding: 20px;
     margin: 15px;
-    z-index: 1;
+    z-index: 10;
     color: white;
 }
 
@@ -284,6 +285,7 @@ button:hover[b-ihegtjdigl] {
     top: 0;
     left: 0;
     width: 100vw;
+    z-index: 5;
 }
 
 .color-overlay[b-lrzzdctped] {
@@ -293,13 +295,33 @@ button:hover[b-ihegtjdigl] {
     background-color: black;
     width: 100%;
     height: 100vh;
-    opacity: 0.6;
+    opacity: 0.7;
+}
+
+.overlay[b-lrzzdctped] {
+    position:absolute;
+    top:20%;
+    left:20%;
+    z-index:1;
+}
+
+.overlay h1[b-lrzzdctped]{
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    font-size: 5rem;
+}
+
+.overlay h2[b-lrzzdctped]{
+    color: white;
+    text-align: center;
+    font-size: 3rem;
 }
 
 /* _content/LightsOut/Pages/LoginPage.razor.rz.scp.css */
 .loginBox[b-1brpe1873z]{
     width: 320px;
-    height: 350px;
+    height: 280px;
     background: rgb(255, 255, 255);
     border: 5px solid rgb(27, 230, 213);
     color: rgb(0, 0, 0);/*cor das palavras*/
@@ -402,6 +424,40 @@ button:hover[b-zxhmacjn0q] {
     display: flex;
     width: 100vw;
     margin-top: 1.4rem;
+}
+/* _content/LightsOut/Pages/Notificacoes.razor.rz.scp.css */
+.menuNotificacoes[b-fz5cgtdj4r]{
+    margin-top: 10%;
+    margin-left: 23%;
+    width: 60%;
+    height: 300px;
+    border: 5px solid rgb(255, 255, 255);
+    background-image: linear-gradient(90deg, rgb(0, 0, 0) 20%, rgb(0, 0, 0) 100%);
+    border-radius: 5px;
+}
+
+.menuNotificacoes h1[b-fz5cgtdj4r]{
+    margin-top: 1rem;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+
+button[b-fz5cgtdj4r]{
+    margin-top: 4rem;
+    margin-left: 60%;
+    margin-bottom: 4rem;
+    width: 200px;
+    height: 50px;
+    position: relative;
+}
+
+.imagem[b-fz5cgtdj4r]{
+    margin-top: 1rem;
+    margin-left: 10%;
+    position: absolute;
 }
 /* _content/LightsOut/Pages/ResultadoEQualificacao.razor.rz.scp.css */
 .resultadoProva[b-dlm5pfhheh]{
@@ -539,28 +595,18 @@ html[b-iqhk2qen0b] {
     font-size: 0.9rem;
 }
 
-    .nav-item[b-2ckyjn3pwu]  a { /*cada palavra na nav-bar */
-        color: #ffffff;
-        height: 3rem;
-        display: flex;
-        align-items: center;
-        font-family: monospace;
-        padding-left: 50px;
-        padding-right: 50px;
-    }
-
-.nav-item[b-2ckyjn3pwu]  a:active { /*como fica a palavra e icon quando esta selecionado*/
-    text-decoration: none;
-    font-weight: bold;
-    color: white;
+.nav-item[b-2ckyjn3pwu]  a { /*cada palavra na nav-bar */
+    color: #ffffff;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    font-family: monospace;
+    padding-left: 50px;
+    padding-right: 50px;
 }
 
-.nav-item[b-2ckyjn3pwu]  a:hover{ /*como fica a palavra e icon quando passamos por cima*/
-    text-decoration: none;
-    background: transparent;
-    font-weight: bold;
-    color: rgb(255, 255, 255);
-}
+
+
 
 
 

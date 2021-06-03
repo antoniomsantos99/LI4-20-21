@@ -2,7 +2,8 @@
 @page "/resultados/{racename}"
 
 @using LightsOut.Data
-@using System.Reflection.Metadata
+@using System.Reflection
+@using System.Text.RegularExpressions
 
 
 <div class="resultadoProva">
@@ -102,6 +103,19 @@
                                         break;
                                     case 2019:
                                         <td><img src="/2019cars/2019redbull.png" alt="" border=3 height=60px width=200px></td>
+                                        break;
+                                    default:
+                                        <td>-</td>
+                                        break;
+                                }
+                                break;
+                            
+                            case "Yuki Tsunoda":
+
+                                @switch (epocaPretendida)
+                                {
+                                    case 2021:
+                                        <td><img src="/2021cars/2021alphatauri.png" alt="" border=3 height=60px width=200px></td>
                                         break;
                                     default:
                                         <td>-</td>
@@ -496,14 +510,21 @@
     
     private Resultado resultadoProva = new Resultado();
 
-    private int epocaPretendida = 2020;
+    private int epocaPretendida;
+    
+        
+    protected override async Task OnAfterRenderAsync(bool firstRender){
+        
+        string[] split =  Regex.Split(racename, @"(?<!^)(?=x)");//separar por letras maíusculas
 
-    protected override async Task OnAfterRenderAsync(bool firstRender)
-    {
-
-        if (firstRender)
+        string newThing = Regex.Replace(split[1], "x", "");
+        epocaPretendida = Int32.Parse(newThing);
+        
+        //Console.WriteLine(epocaPretendida);
+    if (firstRender)
         {
             resultados = await resultadoProva.ResultadosProva(racename);
+            
             //equipas = await equipa.GetEquipasEpoca(epocaPretendida);
             StateHasChanged();
     //Console.WriteLine("sada");
@@ -511,6 +532,8 @@
         else
         {
             resultados = await resultadoProva.ResultadosProva(racename);
+            Console.WriteLine(epocaPretendida);
+
             //equipas = await equipa.GetEquipasEpoca(epocaPretendida);
             StateHasChanged();
         }

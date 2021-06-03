@@ -3,7 +3,10 @@
 @using LightsOut.Data
 @using System.Net.Http.Json
 @using System.Text.Json.Serialization
+@using System.Threading
+@using Microsoft.Extensions.WebEncoders.Testing
 @using Newtonsoft.Json
+@inject PageHistoryState PageHistoryState
 
 <div class="contentor">
     
@@ -44,7 +47,7 @@
     private Localizacao local = new Localizacao();
     private List<Localizacao> localizacoes = new List<Localizacao>();
     private List<List<float>> locais = new List<List<float>>();
-    //private string tempoRefrescamento = "2";
+    private String time;
 
     
     private void IncrementRange(){
@@ -117,7 +120,18 @@
         
         return result;
     }
-    
+    /*
+    private async void Teste()
+    {
+        provas = prova.localizacaoProvasIntervalo(diaInicial.ToString("yyyy-MM-dd"), diaFinal.ToString("yyyy-MM-dd"));
+        List<string> res = new List<string>();
+            
+        foreach(var p in provas){
+            res.Add(JsonConvert.SerializeObject(p));
+        }
+
+        await JSRuntime.InvokeVoidAsync("loadMapScenario", res);
+    }*/
     protected override async Task OnAfterRenderAsync(bool firstRender) {
 
         if (firstRender){
@@ -146,7 +160,13 @@
             }
 
             await JSRuntime.InvokeVoidAsync("loadMapScenario", res);
-
+            TimerService.UpdateEvent += async date =>
+            {
+                await InvokeAsync(() =>
+                {
+                    StateHasChanged();
+                });
+            };
         }
         else{
             /*
@@ -171,7 +191,18 @@
             }
 
             await JSRuntime.InvokeVoidAsync("loadMapScenario", res);
+            
+            TimerService.UpdateEvent += async date =>
+            {
+                await InvokeAsync(() =>
+                {
+                    time += date;
+                    StateHasChanged();
+                });
+            };
 
         }
+        
+        PageHistoryState.AddPageToHistory("/mapaProvas");
     }
 }

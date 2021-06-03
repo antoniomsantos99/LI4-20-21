@@ -10,9 +10,9 @@ namespace LightsOut.Data
         public string conString =
             "Data Source=(local);Initial Catalog=LightsOut;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
 
-        private string username;
+        public string username;
 
-        private string password;
+        public string password;
         
         //adicionar lista notificações
 

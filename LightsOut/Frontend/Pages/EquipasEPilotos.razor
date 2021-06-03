@@ -23,7 +23,25 @@
             <thead>
                 <tr>
                     <th>Equipa</th>
-                    <th>Nacionalidade</th>
+                    @switch (@epocaPretendida)
+                    {
+                        case 2021:
+                            <th>Veículo</th>
+                            break;
+                        
+                        case 2020:
+                            <th>Veículo</th>
+                            break;
+
+                        case 2019:
+                            <th>Veículo</th>
+                            break;
+
+                        default:
+                            <th>Nacionalidade</th>
+                            break;
+                    }
+                    
                     <th>Piloto Principal</th>
                     <th>Piloto Secundário</th>
                 </tr>
@@ -280,12 +298,14 @@
 
     private void ProxEpoca()
     {
-        epocaPretendida++;
+        if (epocaPretendida <= 2020){
+            epocaPretendida++;
+        }
     }
 
     protected void PrevEpoca()
     {
-        if (epocaPretendida >= 1)
+        if (epocaPretendida >= 2001)
         {
             epocaPretendida--;
         }
@@ -298,12 +318,14 @@
         {
             equipas = await equipa.GetEquipasEpoca(epocaPretendida);
             StateHasChanged();
+
     //Console.WriteLine("sada");
         }
         else
         {
             equipas = await equipa.GetEquipasEpoca(epocaPretendida);
             StateHasChanged();
+
         }
     }
 }

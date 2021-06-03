@@ -1,4 +1,9 @@
-﻿<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-black mb-3 fixed-top">
+﻿@using LightsOut.Data
+@inject AuthenticationStateProvider AuthenticationStateProvider
+@inject PageHistoryState PageHistoryState
+@inject NavigationManager NavigationManager
+
+<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-black mb-3 fixed-top">
     <div class="container">
 
         <a class="navbar-brand" href="" Match="NavLinkMatch.All">
@@ -19,7 +24,7 @@
                             <a href="equipasepilotos">Equipas e Pilotos</a>
                         </li>
                         <li class="nav-item">
-                            <a>Logout</a>
+                            <a href="/" @onclick="(() => Logout())">Log Out</a>
                         </li>
                     </Authorized>
                     <NotAuthorized>
@@ -57,4 +62,14 @@
     {
         collapseNavMenu = true;
     }
+
+    public void Logout()
+    {
+        ((CustomAuthenticationStateProvider)AuthenticationStateProvider).MarkUserAsLoggedOut();
+        if (PageHistoryState.CanGoBack()){
+            NavigationManager.NavigateTo(PageHistoryState.GetGoBackPage());
+        }
+        
+    }
+    
 }

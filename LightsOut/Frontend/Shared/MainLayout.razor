@@ -1,4 +1,8 @@
+@using Append.Blazor.Notifications
+@using LightsOut.Data
 @inherits LayoutComponentBase
+@inject INotificationService NotificationService
+@inject Blazored.SessionStorage.ISessionStorageService sessionStorage
 
 <div class="page">
     <div class="sidebar"><NavMenu /></div>
@@ -8,3 +12,55 @@
         </div>
     </div>
 </div>
+
+@code{
+
+    private Notificacao notificacao = new Notificacao();
+    
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+
+        if (firstRender)
+        {
+            Console.WriteLine("Nenhum Utilizador");
+            
+            
+            TimerService.UpdateEvent += async date =>
+            {
+                await InvokeAsync(() =>
+                {
+                    StateHasChanged();
+                });
+            };
+        }
+        else
+        {
+            
+            string username = await sessionStorage.GetItemAsync<string>("username");
+            string res = await notificacao.sendNotification(username);
+
+            if (res != "nothing")
+            {
+                var options = new NotificationOptions
+                {
+                    Body = "O GrandPrémio acabou de começar!",
+                    Icon = "images/github.png",
+                    Renotify = true
+                };
+
+                await NotificationService.CreateAsync(res, options);
+            }
+            
+            
+            TimerService.UpdateEvent += async date =>
+            {
+                await InvokeAsync(() =>
+                {
+                    StateHasChanged();
+                });
+            };
+            
+        }
+    }
+
+}

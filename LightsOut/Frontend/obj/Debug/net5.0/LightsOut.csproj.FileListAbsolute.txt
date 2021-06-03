@@ -318,3 +318,17 @@ D:\DEV\GitHub projects\LI4-20-21\LightsOut\Frontend\obj\Debug\net5.0\RazorDeclar
 D:\DEV\GitHub projects\LI4-20-21\LightsOut\Frontend\obj\Debug\net5.0\Razor\Pages\ResultadoEQualificacao.razor.g.cs
 D:\DEV\GitHub projects\LI4-20-21\LightsOut\Frontend\obj\Debug\net5.0\scopedcss\Pages\ResultadoEQualificacao.razor.rz.scp.css
 D:\DEV\GitHub projects\LI4-20-21\LightsOut\Frontend\bin\Debug\net5.0\Append.Blazor.Notifications.dll
+C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\bin\Debug\net5.0\Append.Blazor.Notifications.dll
+C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\bin\Debug\net5.0\Blazored.SessionStorage.dll
+C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\bin\Debug\net5.0\Bunit.Core.dll
+C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\bin\Debug\net5.0\Microsoft.AspNetCore.Authorization.dll
+C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\bin\Debug\net5.0\Microsoft.AspNetCore.Components.dll
+C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\bin\Debug\net5.0\Microsoft.AspNetCore.Components.Forms.dll
+C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\bin\Debug\net5.0\Microsoft.AspNetCore.Components.Web.dll
+C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\bin\Debug\net5.0\Microsoft.AspNetCore.Metadata.dll
+C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\bin\Debug\net5.0\Microsoft.JSInterop.dll
+C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\bin\Debug\net5.0\System.IO.Pipelines.dll
+C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\obj\Debug\net5.0\RazorDeclaration\Pages\Notificacoes.razor.g.cs
+C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\obj\Debug\net5.0\Razor\Pages\Notificacoes.razor.g.cs
+C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\obj\Debug\net5.0\scopedcss\Pages\Notificacoes.razor.rz.scp.css
