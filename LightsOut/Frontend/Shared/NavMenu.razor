@@ -1,4 +1,5 @@
 ﻿@using LightsOut.Data
+
 @inject AuthenticationStateProvider AuthenticationStateProvider
 @inject PageHistoryState PageHistoryState
 @inject NavigationManager NavigationManager
@@ -67,7 +68,7 @@
     {
         ((CustomAuthenticationStateProvider)AuthenticationStateProvider).MarkUserAsLoggedOut();
         if (PageHistoryState.CanGoBack()){
-            NavigationManager.NavigateTo(PageHistoryState.GetGoBackPage());
+            NavigationManager.NavigateTo("http://localhost:5000");
         }
         
     }

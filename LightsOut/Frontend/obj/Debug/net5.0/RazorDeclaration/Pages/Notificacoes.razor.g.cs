@@ -70,20 +70,27 @@ using Microsoft.JSInterop;
 #nullable disable
 #nullable restore
 #line 9 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\_Imports.razor"
-using LightsOut;
+using DataAccessLibrary;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 10 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\_Imports.razor"
-using LightsOut.Shared;
+using LightsOut;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 11 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\_Imports.razor"
+using LightsOut.Shared;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 12 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\_Imports.razor"
 using Microsoft.AspNetCore.Identity;
 
 #line default
@@ -120,10 +127,9 @@ using System.Text.RegularExpressions;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 98 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\Pages\Notificacoes.razor"
+#line 99 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\Pages\Notificacoes.razor"
            
 
-    private Notificacao notificacao = new Notificacao();
     private string _racename; 
 
     [Parameter]
@@ -138,7 +144,6 @@ using System.Text.RegularExpressions;
     private PermissionType permission;
     private string country = "";
     private bool isSupportedByBrowser;
-    private string icon = "images/github.png";
 
     protected override async Task OnInitializedAsync()
     {
@@ -151,17 +156,15 @@ using System.Text.RegularExpressions;
     private async Task CreateNotifcationAsync()
     {
         string username = await sessionStorage.GetItemAsync<string>("username");
-        //Console.WriteLine(username);
-        
-        string res = await notificacao.AddNotificacao(username, racename);
+        string res = await _dbNotificacao.AddNotificacao(username, racename);
 
         if (res == "Utilizador não Existe!")
         {
             var options = new NotificationOptions
             {
                 Body = "Para receber notificações das Provas, terá de estar autenticado!",
-                Icon = icon,
                 Renotify = true,
+                RequireInteraction = true
             };
             NavigationManager.NavigateTo("/login");
             await NotificationService.CreateAsync("Autenticação Necessária!", options);
@@ -173,8 +176,8 @@ using System.Text.RegularExpressions;
                 var options = new NotificationOptions
                 {
                     Body = "A Notificação pretendida já se encontrava registada!",
-                    Icon = icon,
                     Renotify = true,
+                    RequireInteraction = true
                 };
 
                 
@@ -209,6 +212,7 @@ using System.Text.RegularExpressions;
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private INotificacaoData _dbNotificacao { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private PageHistoryState PageHistoryState { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private Blazored.SessionStorage.ISessionStorageService sessionStorage { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private INotificationService NotificationService { get; set; }

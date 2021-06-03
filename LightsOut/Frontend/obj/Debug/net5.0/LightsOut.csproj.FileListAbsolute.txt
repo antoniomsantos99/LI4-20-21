@@ -18,12 +18,10 @@ c:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\ob
 c:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\obj\Debug\net5.0\LightsOut.MvcApplicationPartsAssemblyInfo.cache
 c:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\obj\Debug\net5.0\LightsOut.RazorComponent.input.cache
 c:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\obj\Debug\net5.0\RazorDeclaration\App.razor.g.cs
-c:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\obj\Debug\net5.0\RazorDeclaration\Pages\Counter.razor.g.cs
 c:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\obj\Debug\net5.0\RazorDeclaration\Shared\SurveyPrompt.razor.g.cs
 c:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\obj\Debug\net5.0\RazorDeclaration\_Imports.razor.g.cs
 c:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\obj\Debug\net5.0\RazorDeclaration\Pages\ClassificacoesGerais.razor.g.cs
 c:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\obj\Debug\net5.0\RazorDeclaration\Pages\EquipasEPilotos.razor.g.cs
-c:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\obj\Debug\net5.0\RazorDeclaration\Pages\FetchData.razor.g.cs
 c:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\obj\Debug\net5.0\RazorDeclaration\Pages\Index.razor.g.cs
 c:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\obj\Debug\net5.0\RazorDeclaration\Pages\LoginPage.razor.g.cs
 c:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\obj\Debug\net5.0\RazorDeclaration\Pages\MapaProvas.razor.g.cs
@@ -35,12 +33,10 @@ c:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\ob
 c:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\obj\Debug\net5.0\LightsOut.TagHelpers.output.cache
 c:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\obj\Debug\net5.0\LightsOut.RazorCoreGenerate.cache
 c:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\obj\Debug\net5.0\Razor\App.razor.g.cs
-c:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\obj\Debug\net5.0\Razor\Pages\Counter.razor.g.cs
 c:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\obj\Debug\net5.0\Razor\Shared\SurveyPrompt.razor.g.cs
 c:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\obj\Debug\net5.0\Razor\_Imports.razor.g.cs
 c:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\obj\Debug\net5.0\Razor\Pages\ClassificacoesGerais.razor.g.cs
 c:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\obj\Debug\net5.0\Razor\Pages\EquipasEPilotos.razor.g.cs
-c:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\obj\Debug\net5.0\Razor\Pages\FetchData.razor.g.cs
 c:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\obj\Debug\net5.0\Razor\Pages\Index.razor.g.cs
 c:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\obj\Debug\net5.0\Razor\Pages\LoginPage.razor.g.cs
 c:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\obj\Debug\net5.0\Razor\Pages\MapaProvas.razor.g.cs
@@ -54,7 +50,6 @@ c:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\ob
 c:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\obj\Debug\net5.0\staticwebassets\LightsOut.StaticWebAssets.xml
 c:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\obj\Debug\net5.0\scopedcss\Pages\ClassificacoesGerais.razor.rz.scp.css
 c:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\obj\Debug\net5.0\scopedcss\Pages\EquipasEPilotos.razor.rz.scp.css
-c:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\obj\Debug\net5.0\scopedcss\Pages\FetchData.razor.rz.scp.css
 c:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\obj\Debug\net5.0\scopedcss\Pages\Index.razor.rz.scp.css
 c:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\obj\Debug\net5.0\scopedcss\Pages\LoginPage.razor.rz.scp.css
 c:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\obj\Debug\net5.0\scopedcss\Pages\MapaProvas.razor.rz.scp.css
@@ -332,3 +327,5 @@ C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\bi
 C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\obj\Debug\net5.0\RazorDeclaration\Pages\Notificacoes.razor.g.cs
 C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\obj\Debug\net5.0\Razor\Pages\Notificacoes.razor.g.cs
 C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\obj\Debug\net5.0\scopedcss\Pages\Notificacoes.razor.rz.scp.css
+C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\bin\Debug\net5.0\DataAccessLibrary.dll
+C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\bin\Debug\net5.0\DataAccessLibrary.pdb

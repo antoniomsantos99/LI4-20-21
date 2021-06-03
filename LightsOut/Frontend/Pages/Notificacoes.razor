@@ -1,15 +1,16 @@
 @page "/notificacoes"
 @page "/notificacoes/{racename}"
 
-@using LightsOut.Data
-@using Append.Blazor.Notifications
-@using System.Text.RegularExpressions
+@using LightsOut.Data;
+@using Append.Blazor.Notifications;
+@using System.Text.RegularExpressions;
 
 @inject NavigationManager NavigationManager
 @inject AuthenticationStateProvider AuthenticationStateProvider
 @inject INotificationService NotificationService
 @inject Blazored.SessionStorage.ISessionStorageService sessionStorage
 @inject PageHistoryState PageHistoryState
+@inject INotificacaoData _dbNotificacao 
 
 <div class="menuNotificacoes">
     
@@ -97,7 +98,6 @@
 
 @functions{
 
-    private Notificacao notificacao = new Notificacao();
     private string _racename; 
 
     [Parameter]
@@ -112,7 +112,6 @@
     private PermissionType permission;
     private string country = "";
     private bool isSupportedByBrowser;
-    private string icon = "images/github.png";
 
     protected override async Task OnInitializedAsync()
     {
@@ -125,17 +124,15 @@
     private async Task CreateNotifcationAsync()
     {
         string username = await sessionStorage.GetItemAsync<string>("username");
-        //Console.WriteLine(username);
-        
-        string res = await notificacao.AddNotificacao(username, racename);
+        string res = await _dbNotificacao.AddNotificacao(username, racename);
 
         if (res == "Utilizador não Existe!")
         {
             var options = new NotificationOptions
             {
                 Body = "Para receber notificações das Provas, terá de estar autenticado!",
-                Icon = icon,
                 Renotify = true,
+                RequireInteraction = true
             };
             NavigationManager.NavigateTo("/login");
             await NotificationService.CreateAsync("Autenticação Necessária!", options);
@@ -147,8 +144,8 @@
                 var options = new NotificationOptions
                 {
                     Body = "A Notificação pretendida já se encontrava registada!",
-                    Icon = icon,
                     Renotify = true,
+                    RequireInteraction = true
                 };
 
                 

@@ -70,20 +70,27 @@ using Microsoft.JSInterop;
 #nullable disable
 #nullable restore
 #line 9 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\_Imports.razor"
-using LightsOut;
+using DataAccessLibrary;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 10 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\_Imports.razor"
-using LightsOut.Shared;
+using LightsOut;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 11 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\_Imports.razor"
+using LightsOut.Shared;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 12 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\_Imports.razor"
 using Microsoft.AspNetCore.Identity;
 
 #line default
@@ -91,20 +98,6 @@ using Microsoft.AspNetCore.Identity;
 #nullable disable
 #nullable restore
 #line 4 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\Pages\ResultadoEQualificacao.razor"
-using LightsOut.Data;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 5 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\Pages\ResultadoEQualificacao.razor"
-using System.Reflection;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 6 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\Pages\ResultadoEQualificacao.razor"
 using System.Text.RegularExpressions;
 
 #line default
@@ -120,29 +113,26 @@ using System.Text.RegularExpressions;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 494 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\Pages\ResultadoEQualificacao.razor"
+#line 487 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\Pages\ResultadoEQualificacao.razor"
            
+
     private string _racename;
-[Parameter]
- public string racename
-  {
+    [Parameter]
+    public string racename{
       get { 
           return _racename==null ? string.Empty : _racename;
       }
       set { _racename = value;} 
-  }
+    }
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 507 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\Pages\ResultadoEQualificacao.razor"
-       
+#line 500 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\Pages\ResultadoEQualificacao.razor"
+      
 
     private List<List<string>> resultados = new List<List<string>>();
-    
-    private Resultado resultadoProva = new Resultado();
-
     private int epocaPretendida;
     
         
@@ -153,21 +143,13 @@ using System.Text.RegularExpressions;
         string newThing = Regex.Replace(split[1], "x", "");
         epocaPretendida = Int32.Parse(newThing);
         
-        //Console.WriteLine(epocaPretendida);
-    if (firstRender)
-        {
-            resultados = await resultadoProva.ResultadosProva(racename);
-            
-            //equipas = await equipa.GetEquipasEpoca(epocaPretendida);
+        if (firstRender){
+            resultados = await _dbResultado.ResultadosProva(racename);            
             StateHasChanged();
-    //Console.WriteLine("sada");
         }
         else
         {
-            resultados = await resultadoProva.ResultadosProva(racename);
-            Console.WriteLine(epocaPretendida);
-
-            //equipas = await equipa.GetEquipasEpoca(epocaPretendida);
+            resultados = await _dbResultado.ResultadosProva(racename);
             StateHasChanged();
         }
     }
@@ -175,6 +157,7 @@ using System.Text.RegularExpressions;
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IResultadoData _dbResultado { get; set; }
     }
 }
 #pragma warning restore 1591

@@ -1,17 +1,22 @@
 @page "/equipasepilotos"
 
-@using LightsOut.Data
+@using LightsOut.Data;
+@using DataAccessLibrary;
+@using DataAccessLibrary.Models;
+
+@inject IEquipaData _dbEquipa
+@inject PageHistoryState PageHistoryState
 
 
 <div class="row">
-        <div class="filtros">
-            <div class="row">
-                <button type="button" @onclick="PrevEpoca">&#8249</button>
-                <p>Época @(epocaPretendida-1)/@epocaPretendida</p>
-                <button type="button" @onclick="ProxEpoca">&#8250</button>
-            </div>
+    <div class="filtros">
+        <div class="row">
+            <button type="button" @onclick="PrevEpoca">&#8249</button>
+            <p>Época @(epocaPretendida-1)/@epocaPretendida</p>
+            <button type="button" @onclick="ProxEpoca">&#8250</button>
         </div>
     </div>
+</div>
 <div class="info">
     @if (equipas == null)
     {
@@ -28,7 +33,7 @@
                         case 2021:
                             <th>Veículo</th>
                             break;
-                        
+
                         case 2020:
                             <th>Veículo</th>
                             break;
@@ -41,7 +46,7 @@
                             <th>Nacionalidade</th>
                             break;
                     }
-                    
+
                     <th>Piloto Principal</th>
                     <th>Piloto Secundário</th>
                 </tr>
@@ -71,7 +76,7 @@
                                         break;
                                 }
                                 break;
-                            
+
                             case "Red Bull":
 
                                 @switch (epocaPretendida)
@@ -90,7 +95,7 @@
                                         break;
                                 }
                                 break;
-                            
+
                             case "McLaren":
 
                                 @switch (epocaPretendida)
@@ -109,7 +114,7 @@
                                         break;
                                 }
                                 break;
-                            
+
                             case "Ferrari":
 
                                 @switch (epocaPretendida)
@@ -128,7 +133,7 @@
                                         break;
                                 }
                                 break;
-                            
+
                             case "AlphaTauri":
 
                                 @switch (epocaPretendida)
@@ -144,7 +149,7 @@
                                         break;
                                 }
                                 break;
-                            
+
                             case "Toro Rosso":
 
                                 @switch (epocaPretendida)
@@ -157,7 +162,7 @@
                                         break;
                                 }
                                 break;
-                            
+
                             case "Aston Martin":
 
                                 @switch (epocaPretendida)
@@ -170,7 +175,7 @@
                                         break;
                                 }
                                 break;
-                            
+
                             case "Racing Point":
 
                                 @switch (epocaPretendida)
@@ -186,7 +191,7 @@
                                         break;
                                 }
                                 break;
-                            
+
                             case "Alfa Romeo":
 
                                 @switch (epocaPretendida)
@@ -205,7 +210,7 @@
                                         break;
                                 }
                                 break;
-                            
+
                             case "Alpine F1 Team":
 
                                 @switch (epocaPretendida)
@@ -218,7 +223,7 @@
                                         break;
                                 }
                                 break;
-                            
+
                             case "Renault":
 
                                 @switch (epocaPretendida)
@@ -234,7 +239,7 @@
                                         break;
                                 }
                                 break;
-                            
+
                             case "Williams":
 
                                 @switch (epocaPretendida)
@@ -253,7 +258,7 @@
                                         break;
                                 }
                                 break;
-                            
+
                             case "Haas F1 Team":
 
                                 @switch (epocaPretendida)
@@ -291,15 +296,16 @@
 </div>
 
 @code {
-    //private Equipa[] equipas;
-    private List<Equipa> equipas = new List<Equipa>();
-    private Equipa equipa = new Equipa();
+
+    private List<EquipaModel> equipas = new List<EquipaModel>();
     private int epocaPretendida = 2021;
 
     private void ProxEpoca()
     {
-        if (epocaPretendida <= 2020){
+        if (epocaPretendida <= 2020)
+        {
             epocaPretendida++;
+            StateHasChanged();
         }
     }
 
@@ -308,24 +314,25 @@
         if (epocaPretendida >= 2001)
         {
             epocaPretendida--;
+            StateHasChanged();
         }
     }
 
+
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
-
         if (firstRender)
         {
-            equipas = await equipa.GetEquipasEpoca(epocaPretendida);
+            equipas = await _dbEquipa.GetEquipasEpoca(epocaPretendida);
             StateHasChanged();
-
-    //Console.WriteLine("sada");
         }
         else
         {
-            equipas = await equipa.GetEquipasEpoca(epocaPretendida);
+            equipas = await _dbEquipa.GetEquipasEpoca(epocaPretendida);
             StateHasChanged();
 
         }
+
+        PageHistoryState.AddPageToHistory("/equipasepilotos");
     }
 }

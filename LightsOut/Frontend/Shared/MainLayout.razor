@@ -1,8 +1,11 @@
-@using Append.Blazor.Notifications
-@using LightsOut.Data
 @inherits LayoutComponentBase
+
+@using Append.Blazor.Notifications;
+@using LightsOut.Data;
+;
 @inject INotificationService NotificationService
 @inject Blazored.SessionStorage.ISessionStorageService sessionStorage
+@inject INotificacaoData _dbNotificacao;
 
 <div class="page">
     <div class="sidebar"><NavMenu /></div>
@@ -14,16 +17,10 @@
 </div>
 
 @code{
-
-    private Notificacao notificacao = new Notificacao();
     
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
-
-        if (firstRender)
-        {
-            Console.WriteLine("Nenhum Utilizador");
-            
+        if (firstRender){
             
             TimerService.UpdateEvent += async date =>
             {
@@ -33,18 +30,16 @@
                 });
             };
         }
-        else
-        {
+        else{
             
             string username = await sessionStorage.GetItemAsync<string>("username");
-            string res = await notificacao.sendNotification(username);
+            string res = await _dbNotificacao.sendNotification(username);
 
             if (res != "nothing")
             {
                 var options = new NotificationOptions
                 {
                     Body = "O GrandPrémio acabou de começar!",
-                    Icon = "images/github.png",
                     Renotify = true
                 };
 

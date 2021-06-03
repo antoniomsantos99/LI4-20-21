@@ -1,21 +1,13 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Append.Blazor.Notifications;
 using Blazored.SessionStorage;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using LightsOut.Data;
-using Microsoft.AspNetCore.Authentication.Cookies;
+using DataAccessLibrary;
 using Microsoft.AspNetCore.Components.Authorization;
-using Microsoft.AspNetCore.Components.Server;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Identity;
 
 namespace LightsOut
 {
@@ -34,19 +26,19 @@ namespace LightsOut
         {
           
             services.AddRazorPages();
-            services.AddServerSideBlazor();
-            services.AddSingleton<WeatherForecastService>();
-            services.AddSingleton<PilotoService>();
-            
-            services.AddHostedService<TimerService>();
-            
-            services.AddSingleton<PageHistoryState>();
-            
+            services.AddServerSideBlazor();            
+            services.AddHostedService<TimerService>();            
+            services.AddSingleton<PageHistoryState>();            
             services.AddNotifications();
             services.AddBlazoredSessionStorage();
-
+            services.AddTransient<IEquipaData, EquipaData>();
+            services.AddTransient<ILocalizacaoData, LocalizacaoData>();
+            services.AddTransient<INotificacaoData, NotificacaoData>();
+            services.AddTransient<IProvaData, ProvaData>();
+            services.AddTransient<IResultadoData, ResultadoData>();
+            services.AddTransient<IUtilizadorData, UtilizadorData>();
             services.AddScoped<AuthenticationStateProvider, CustomAuthenticationStateProvider>();
-            }
+        }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
