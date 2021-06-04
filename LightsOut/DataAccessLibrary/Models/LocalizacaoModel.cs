@@ -14,8 +14,6 @@ namespace DataAccessLibrary.Models
 
         public float longitude{ get; set;} 
 
-        public List<string> pilotos { get; set; }
-
         public LocalizacaoModel(string id, string nome, string nacionalidade, float latitude, float longitude){
             this.id = id;
             this.nome = nome;
