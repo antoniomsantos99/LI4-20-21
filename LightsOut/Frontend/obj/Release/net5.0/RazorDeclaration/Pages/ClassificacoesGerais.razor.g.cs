@@ -69,21 +69,21 @@ using Microsoft.JSInterop;
 #line hidden
 #nullable disable
 #nullable restore
-#line 9 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\_Imports.razor"
+#line 10 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\_Imports.razor"
 using LightsOut;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 10 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\_Imports.razor"
+#line 11 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\_Imports.razor"
 using LightsOut.Shared;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 11 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\_Imports.razor"
+#line 12 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\_Imports.razor"
 using Microsoft.AspNetCore.Identity;
 
 #line default
@@ -91,7 +91,14 @@ using Microsoft.AspNetCore.Identity;
 #nullable disable
 #nullable restore
 #line 5 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\Pages\ClassificacoesGerais.razor"
-using LightsOut.Data;
+using DataAccessLibrary;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 6 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\Pages\ClassificacoesGerais.razor"
+using DataAccessLibrary.Models;
 
 #line default
 #line hidden
@@ -105,9 +112,11 @@ using LightsOut.Data;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 760 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\Pages\ClassificacoesGerais.razor"
+#line 761 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\Pages\ClassificacoesGerais.razor"
        
-    private Resultado resultado = new Resultado();
+
+    private ResultadoModel resultado = new ResultadoModel();
+
     private List<Tuple<string, int>> total = new List<Tuple<string, int>>();
     private List<Tuple<string, int>> totalEquipas = new List<Tuple<string, int>>();
     private int provaPretendida = 1;
@@ -152,24 +161,23 @@ using LightsOut.Data;
 
         if (firstRender)
         {
-            total = await resultado.ClassificacoesGeraisPiloto(epocaPretendida, provaPretendida);
-            totalEquipas = await resultado.ClassificacoesGeraisEquipas(epocaPretendida, provaPretendida);
+            total = await _dbResultado.ClassificacoesGeraisPiloto(epocaPretendida, provaPretendida);
+            totalEquipas = await _dbResultado.ClassificacoesGeraisEquipas(epocaPretendida, provaPretendida);
             StateHasChanged();
 
         }
         else
         {
-            total = await resultado.ClassificacoesGeraisPiloto(epocaPretendida, provaPretendida);
-            totalEquipas = await resultado.ClassificacoesGeraisEquipas(epocaPretendida, provaPretendida);
+            total = await _dbResultado.ClassificacoesGeraisPiloto(epocaPretendida, provaPretendida);
+            totalEquipas = await _dbResultado.ClassificacoesGeraisEquipas(epocaPretendida, provaPretendida);
             StateHasChanged();
-
         }
     }
 
 #line default
 #line hidden
 #nullable disable
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private PilotoService PilotoService { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IResultadoData _dbResultado { get; set; }
     }
 }
 #pragma warning restore 1591

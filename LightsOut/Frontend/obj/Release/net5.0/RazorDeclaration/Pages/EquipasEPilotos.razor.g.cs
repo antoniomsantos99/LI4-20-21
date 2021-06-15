@@ -69,21 +69,21 @@ using Microsoft.JSInterop;
 #line hidden
 #nullable disable
 #nullable restore
-#line 9 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\_Imports.razor"
+#line 10 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\_Imports.razor"
 using LightsOut;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 10 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\_Imports.razor"
+#line 11 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\_Imports.razor"
 using LightsOut.Shared;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 11 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\_Imports.razor"
+#line 12 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\_Imports.razor"
 using Microsoft.AspNetCore.Identity;
 
 #line default
@@ -92,6 +92,20 @@ using Microsoft.AspNetCore.Identity;
 #nullable restore
 #line 3 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\Pages\EquipasEPilotos.razor"
 using LightsOut.Data;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 4 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\Pages\EquipasEPilotos.razor"
+using DataAccessLibrary;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 5 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\Pages\EquipasEPilotos.razor"
+using DataAccessLibrary.Models;
 
 #line default
 #line hidden
@@ -105,17 +119,18 @@ using LightsOut.Data;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 293 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\Pages\EquipasEPilotos.razor"
+#line 298 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\Pages\EquipasEPilotos.razor"
        
-    //private Equipa[] equipas;
-    private List<Equipa> equipas = new List<Equipa>();
-    private Equipa equipa = new Equipa();
+
+    private List<EquipaModel> equipas = new List<EquipaModel>();
     private int epocaPretendida = 2021;
 
     private void ProxEpoca()
     {
-        if (epocaPretendida <= 2020){
+        if (epocaPretendida <= 2020)
+        {
             epocaPretendida++;
+            StateHasChanged();
         }
     }
 
@@ -124,30 +139,33 @@ using LightsOut.Data;
         if (epocaPretendida >= 2001)
         {
             epocaPretendida--;
+            StateHasChanged();
         }
     }
 
+
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
-
         if (firstRender)
         {
-            equipas = await equipa.GetEquipasEpoca(epocaPretendida);
+            equipas = await _dbEquipa.GetEquipasEpoca(epocaPretendida);
             StateHasChanged();
-
-    //Console.WriteLine("sada");
         }
         else
         {
-            equipas = await equipa.GetEquipasEpoca(epocaPretendida);
+            equipas = await _dbEquipa.GetEquipasEpoca(epocaPretendida);
             StateHasChanged();
 
         }
+
+        PageHistoryState.AddPageToHistory("/equipasepilotos");
     }
 
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private PageHistoryState PageHistoryState { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IEquipaData _dbEquipa { get; set; }
     }
 }
 #pragma warning restore 1591

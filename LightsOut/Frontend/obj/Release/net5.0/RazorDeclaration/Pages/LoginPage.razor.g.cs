@@ -69,28 +69,28 @@ using Microsoft.JSInterop;
 #line hidden
 #nullable disable
 #nullable restore
-#line 9 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\_Imports.razor"
+#line 10 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\_Imports.razor"
 using LightsOut;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 10 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\_Imports.razor"
+#line 11 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\_Imports.razor"
 using LightsOut.Shared;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 11 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\_Imports.razor"
+#line 12 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\_Imports.razor"
 using Microsoft.AspNetCore.Identity;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\Pages\LoginPage.razor"
+#line 3 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\Pages\LoginPage.razor"
 using LightsOut.Data;
 
 #line default
@@ -98,6 +98,20 @@ using LightsOut.Data;
 #nullable disable
 #nullable restore
 #line 4 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\Pages\LoginPage.razor"
+using DataAccessLibrary;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 5 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\Pages\LoginPage.razor"
+using DataAccessLibrary.Models;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 6 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\Pages\LoginPage.razor"
 using Append.Blazor.Notifications;
 
 #line default
@@ -112,33 +126,34 @@ using Append.Blazor.Notifications;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 22 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\Pages\LoginPage.razor"
+#line 28 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\Pages\LoginPage.razor"
       
-    
-    private Utilizador user;  
+
+    private UtilizadorModel user;
 
     protected override Task OnInitializedAsync()
     {
-        user = new Utilizador();
+        user = new UtilizadorModel();
         return base.OnInitializedAsync();
     }
-    
-   
+
+
     public async void addUser()
     {
         await NotificationService.RequestPermissionAsync();
-        if (user.addUserBaseDados(user.username, user.password))
+
+        if (_dbUtilizador.addUserBaseDados(user.username, user.password))
         {
             ((CustomAuthenticationStateProvider)AuthenticationStateProvider).MarkUserAsAuthenticated(user.username);
-           
+
             NavigationManager.NavigateTo(PageHistoryState.GetGoBackPage());
-            
+
             await sessionStorage.SetItemAsync("username", user.username);
         }
         else
         {
             ((CustomAuthenticationStateProvider)AuthenticationStateProvider).MarkUserAsAuthenticated(user.username);
-            
+
             NavigationManager.NavigateTo(PageHistoryState.GetGoBackPage());
 
             await sessionStorage.SetItemAsync("username", user.username);
@@ -150,6 +165,7 @@ using Append.Blazor.Notifications;
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IUtilizadorData _dbUtilizador { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private PageHistoryState PageHistoryState { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private Blazored.SessionStorage.ISessionStorageService sessionStorage { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private AuthenticationStateProvider AuthenticationStateProvider { get; set; }

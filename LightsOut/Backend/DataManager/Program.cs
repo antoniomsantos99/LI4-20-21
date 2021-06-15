@@ -425,7 +425,7 @@ namespace LightsOut
         
         void loadCountries() {   
             
-            List<Tuple<String, String>> countries = LoadJson("../../../Countries.json")
+            List<Tuple<String, String>> countries = LoadJson("Backend/DataManager/Countries.json")
                 .Select(x => new Tuple<String, String>(x["en_short_name"], x["nationality"]))
                     .ToList();
 
@@ -490,11 +490,11 @@ namespace LightsOut
             dm.loadPilotos();
             dm.loadEquipas();
             dm.loadPilotosEquipas();
-            //dm.loadQualificacao(); só aos sábados
-            //dm.loadResults();só aos domingos
+            dm.loadQualificacao(); //só aos sábados
+            dm.loadResults();//só aos domingos
             
             Console.WriteLine("Terminou de executar");
-            Thread.Sleep(120000);//dormir 2 minutos
+            Thread.Sleep(86400000);//dormir 1 dia
 
         }
         
@@ -505,16 +505,6 @@ namespace LightsOut
 
             while (true)//enquanto estiver a correr, vai metendo dados na Base de dados
             {
-                if (DateTime.Now.DayOfWeek.ToString() == "Saturday" && DateTime.Now.Hour.ToString() == "21")//todos os sábados às 21:00h, insere novas qualificações
-                {
-                    dm.loadQualificacao();
-                }
-
-                if (DateTime.Now.DayOfWeek.ToString() == "Sunday" && DateTime.Now.Hour.ToString() == "22")//todos os domingos às 22:00h, insere novos resultados
-                {
-                    dm.loadResults();
-                }
-                
                 Thread t1 = new Thread(dm.ThreadCarregarDados);
                 t1.Start();
                 t1.Join();

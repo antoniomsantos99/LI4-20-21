@@ -70,34 +70,41 @@ using Microsoft.JSInterop;
 #nullable disable
 #nullable restore
 #line 9 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\_Imports.razor"
-using LightsOut;
+using DataAccessLibrary;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 10 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\_Imports.razor"
-using LightsOut.Shared;
+using LightsOut;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 11 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\_Imports.razor"
+using LightsOut.Shared;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 12 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\_Imports.razor"
 using Microsoft.AspNetCore.Identity;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 1 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\Shared\MainLayout.razor"
+#line 3 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\Shared\MainLayout.razor"
 using Append.Blazor.Notifications;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\Shared\MainLayout.razor"
+#line 4 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\Shared\MainLayout.razor"
 using LightsOut.Data;
 
 #line default
@@ -111,18 +118,12 @@ using LightsOut.Data;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 16 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\Shared\MainLayout.razor"
+#line 19 "C:\Users\Carlos Preto\Desktop\3ºAno MIEI\2º Semestre\LI4\LightsOut\Frontend\Shared\MainLayout.razor"
       
-
-    private Notificacao notificacao = new Notificacao();
     
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
-
-        if (firstRender)
-        {
-            Console.WriteLine("Nenhum Utilizador");
-            
+        if (firstRender){
             
             TimerService.UpdateEvent += async date =>
             {
@@ -132,18 +133,16 @@ using LightsOut.Data;
                 });
             };
         }
-        else
-        {
+        else{
             
             string username = await sessionStorage.GetItemAsync<string>("username");
-            string res = await notificacao.sendNotification(username);
+            string res = await _dbNotificacao.sendNotification(username);
 
             if (res != "nothing")
             {
                 var options = new NotificationOptions
                 {
                     Body = "O GrandPrémio acabou de começar!",
-                    Icon = "images/github.png",
                     Renotify = true
                 };
 
@@ -166,6 +165,7 @@ using LightsOut.Data;
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private INotificacaoData _dbNotificacao { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private Blazored.SessionStorage.ISessionStorageService sessionStorage { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private INotificationService NotificationService { get; set; }
     }

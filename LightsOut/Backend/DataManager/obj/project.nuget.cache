@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "yVWAjLF2Rrgnnn9go2PIsCr6OjE/I95UBIqqeJlLl5nUYvnKR1TgfXyLd/XJpiKc7AT+XWGt0gH2B4bJKzqvRw==",
+  "dgSpecHash": "9zDXWcbgctDYC7rE5BRCKsDseHXt3HkNoFrwZMbMCXGNepknDFg6y4EWJD9w+mmovtAKzX7+jyIawQ+1aTrfCw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Carlos Preto\\Desktop\\3ºAno MIEI\\2º Semestre\\LI4\\LightsOut\\Backend\\DataManager\\Backend.csproj",
+  "projectFilePath": "c:\\Users\\Carlos Preto\\Desktop\\3ºAno MIEI\\2º Semestre\\LI4\\LightsOut\\Backend\\DataManager\\Backend.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Carlos Preto\\.nuget\\packages\\blazored.sessionstorage\\2.1.0\\blazored.sessionstorage.2.1.0.nupkg.sha512",
     "C:\\Users\\Carlos Preto\\.nuget\\packages\\bunit.core\\1.1.5\\bunit.core.1.1.5.nupkg.sha512",

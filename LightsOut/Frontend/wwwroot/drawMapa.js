@@ -34,12 +34,12 @@ function loadMapScenario(lista) {
             if (diaProva == diaAtual) {
 
                  hma = horasMinutosProva.split(":")
-                 //ihma = parseInt(hma[0])
-                 imma = parseInt(hma[1])
-                 //ihoraTermina = ihma + 2.0//depois, para ser mais rápido, dimnuir em vez de 2horas, tipo 5 minutos ou assimm
-                 //horaTerminaProva = ihoraTermina.toString() + ":" + hma[1]
-                iminutotermina = imma + 2//prova acaba passados 2 minutos
-                horaTerminaProva = hma[0] + ":" + iminutotermina.toString()
+                 ihma = parseInt(hma[0])
+                 //imma = parseInt(hma[1])
+                 ihoraTermina = ihma + 2.0//depois, para ser mais rápido, dimnuir em vez de 2horas, tipo 5 minutos ou assimm
+                 horaTerminaProva = ihoraTermina.toString() + ":" + hma[1]
+                //iminutotermina = imma + 2//prova acaba passados 2 minutos
+                //horaTerminaProva = hma[0] + ":" + iminutotermina.toString()
               
                  if (horasMinutosAtual == horasMinutosProva) {
                      var pin = new Microsoft.Maps.Pushpin(local, {color: 'red'});
